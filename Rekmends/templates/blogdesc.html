@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>Hello, world!</title>
+    {% load static %}
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            font-family: 'Montserrat';
+
+        }
+
+        .navbar-brand {
+            padding-top: -0.6875rem;
+            padding-bottom: -0.6875rem;
+            margin-right: 4rem;
+            font-size: 1.25rem;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+
+
+        @media (max-width: 994px) {
+
+            .navbar {
+                height: 91px !important;
+            }
+        }
+
+
+
+        @media (max-width: 991px) {
+            aside {
+                display: none;
+            }
+        }
+
+
+
+        #backgroundimage {
+            background-image: url("/media/{{blogdesc.image}}");
+            width: 100%;
+            height: 80vh;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            position: relative;
+        }
+
+        aside {
+            width: 30%;
+            height: 556px;
+            padding-left: 15px;
+            margin-left: 15px;
+            float: right;
+            font-style: italic;
+            background-color: lightgray;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"
+        style="background-color: #ffffff!important; height: 85px; box-shadow: 0 2px 5px 0 rgb(0 0 0), 0 2px 10px 0 rgb(0 0 0 / 92%);">
+        <div class="container-fluid" style="background-color: #ffffff;">
+            <a class="navbar-brand" href="#"><img src="{% static 'logo.png' %}" alt=""
+                    style="height: 86px; width: 146px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="background-image: black;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" style=" padding-right: 41px;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style=" padding-right: 41px;">About us</a>
+                    </li>
+                    <!--Dropdown primary-->
+                    <div class="dropdown" style="padding-right: 41px;
+padding-top: 9px;">
+
+                        <!--Trigger-->
+                        <a class=" dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Categories</a>
+
+                        <!--Menu-->
+                        <div class="dropdown-menu dropdown-primary">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                    <!--/Dropdown primary-->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" style=" padding-right: 41px;">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" style=" padding-right: 41px;">Contact
+                            us</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 33px;
+        margin-top: 13px;"> <a type="submit" style="height: 34px;
+    margin-top: 15px;
+    font-size: 21px;"><i class="fa fa-search"></i></a></input>
+
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="backgroundimage">
+    </div>
+
+    <br>
+
+
+
+
+    <div class="container">
+
+        <h2 style="color:black; text-transform: uppercase; font-weight: bold;">{{blogdesc.title}}</h2>
+        <hr>
+        <span>{{blogdesc.category.name}} || {{blogdesc.created_at}}</span>
+
+
+        <aside>
+
+            <h3 class="text-center">Popular Post</h3>
+            <div class="fakeimg">Image</div><br>
+            <div class="fakeimg">Image</div><br>
+            <div class="fakeimg">Image</div>
+
+        </aside>
+
+        <div class="container-fixed">
+            {% autoescape off %}
+
+            <p style="color:black;">
+                {{blogdesc.decription}}
+            </p>
+            {% endautoescape %}
+        </div>
+
+
+        <aside>
+
+            <h3 class="text-center">Popular Post</h3>
+            <div class="fakeimg">Image</div><br>
+            <div class="fakeimg">Image</div><br>
+            <div class="fakeimg">Image</div>
+
+        </aside>
+        <br>
+        <br>
+        <h2 style="color:black; text-transform: uppercase; font-weight: bold;">Comments</h2>
+        <hr>
+
+
+        <div class="card " style="max-width:404px;">
+            <article class="card-body">
+
+                <header class="mb-4">
+                    <h4 class="card-title">Add review</h4>
+                </header>
+
+                <form action="{% url 'submit_review' blogdesc.id %}" method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-row">
+
+                        <!-- Message input -->
+                        <div class="form-outline mb-2">
+                            <input class="form-control" id="form4Example3" name="name" rows="4" placeholder="Name" required></input>
+                            <label class="form-label" for="form4Example3"></label>
+                        </div>
+                        <div class="form-row">
+
+                            <div class="form-outline mb-2">
+                                <input class="form-control" id="form4Example3" name="email" rows="4" placeholder="Email" required></input>
+                                <label class="form-label" for="form4Example3"></label>
+                            </div>
+                        </div> <!-- form-row.// -->
+                        <div class="form-row">
+
+                            <div class="form-outline mb-2">
+                                <textarea class="form-control" id="form4Example3" name="message" rows="4" placeholder="Message" required></textarea>
+                                <label class="form-label" for="form4Example3"></label>
+                            </div>
+                        </div> <!-- form-row.// -->
+                    </div>
+                    <div class="form-group">
+                        <input  type="submit" value="Submit Review" class="btn btn-primary"></input>
+                    </div>
+                </form>
+
+
+            </article>
+        </div>
+
+
+
+        {% for i in reviews %}
+        <div class="card"  style="max-width:708px; margin-top: 47px;">
+            <article class="box mb-4 mx-4">
+                <div class="icontext w-100" style="margin-top: 23px;">
+
+                    <div class="text">
+                        <span class="date text-muted float-md-right"></span>
+                        <span class="mb-1"><i class="fas fa-user-circle"></i> {{i.name}} || {{i.post}}</span>
+
+                    </div>
+                </div> <!-- icontext.// -->
+                <div class="mt-3">
+                    <p>
+                        {{i.message}}
+                    </p>
+
+                </div>
+            </article>
+        </div>
+        {% endfor %}
+
+    </div>
+
+  
+
+    <br>
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

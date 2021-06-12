@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet" />
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  {% load static %}
+
+  <title>Rekmends</title>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      font-family: 'Montserrat';
+
+    }
+
+    .navbar-brand {
+      padding-top: -0.6875rem;
+      padding-bottom: -0.6875rem;
+      margin-right: 4rem;
+      font-size: 1.25rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+
+
+    @media (max-width: 994px) {
+
+      .navbar {
+        height: 91px !important;
+      }
+    }
+
+    .heading {
+      writing-mode: tb-rl;
+      transform: rotate(-180deg);
+      margin-left: 69px;
+    }
+
+    .trend {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .latest {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+
+    @media only screen and (max-width: 1200px) {
+      .c11 {
+        max-width: 207px;
+        max-height: 206px !important;
+      }
+
+      .txt {
+
+        font-size: 10px !important;
+      }
+
+      .c22 {
+        max-width: 413px !important;
+        max-height: 206px !important;
+      }
+
+      .c33 {
+        max-width: 645px !important;
+        margin-top: -36px;
+      }
+
+      .c66 {
+        max-height: 427px !important;
+        max-width: 15rem !important;
+      }
+
+      .txt66 {
+        font-size: 16px !important;
+      }
+    }
+
+
+
+
+    @media only screen and (max-width: 991px) {
+
+      .c33 {
+
+        margin-top: -3px;
+      }
+
+
+      .heading {
+        writing-mode: initial;
+        transform: rotate(0);
+        margin-left: 45px;
+      }
+
+      .hrline2 {
+        width: 193px !important;
+        height: 2px !important;
+        margin-right: 0px !important;
+        margin-top: 0px !important;
+        color: #61c4f6 !important;
+        background-color: #61c4f6 !important;
+        opacity: 6 !important;
+      }
+
+
+      .hrline1 {
+        width: 193px !important;
+        height: 2px !important;
+        margin-right: 0px !important;
+        margin-top: 0px !important;
+        color: #f0b463 !important;
+        background-color: #f0b463 !important;
+        opacity: 6 !important;
+      }
+
+      .bigcard {
+        margin-left: 45px !important;
+      }
+
+
+      .c44 {
+        margin-top: 79px !important;
+        margin-left: -220px !important;
+      }
+
+      .c55 {
+        margin-left: -220px !important;
+      }
+
+      .c66 {
+        margin-top: 79px !important;
+        max-width: 11rem !important;
+      }
+
+      .c77 {
+        margin-top: 79px !important;
+      }
+
+
+
+    }
+
+
+    @media only screen and (max-width: 425px) {
+
+      #backgroundimage {
+        background-image: url({% static 'covmob.jpg' %}) !important;
+
+      }
+    }
+
+
+
+    @media only screen and (max-width: 767px) {
+
+
+      .heading {
+        margin-bottom: 5px !important;
+
+      }
+
+      .c44 {
+        margin-top: 16px !important;
+
+      }
+
+      .c55 {
+        margin-left: -220px !important;
+      }
+
+      .c66 {
+        margin-top: 589px !important;
+        max-width: 17rem !important;
+        margin-left: -277px !important;
+      }
+
+      .c77 {
+        margin-top: 18px !important;
+      }
+
+      .heading {
+        writing-mode: initial;
+        transform: rotate(0);
+        margin-left: 22px !important;
+      }
+
+      .c11 {
+        max-width: 279px !important;
+
+        max-height: 415px !important;
+        margin-left: 22px !important;
+      }
+
+      .txt {
+
+        font-size: 14px !important;
+      }
+
+      .c22 {
+        max-width: 279px !important;
+
+        max-height: 447px !important;
+      }
+
+      .c33 {
+        max-width: 279px !important;
+        margin-left: -22px;
+        max-height: 415px !important;
+      }
+
+
+      .heading {
+        writing-mode: initial;
+        transform: rotate(0);
+        margin-left: 45px;
+      }
+
+      .hrline2 {
+        width: 193px !important;
+        height: 2px !important;
+        margin-right: 0px !important;
+        margin-top: 0px !important;
+        color: #61c4f6 !important;
+        background-color: #61c4f6 !important;
+        opacity: 6 !important;
+      }
+
+
+      .hrline1 {
+        width: 193px !important;
+        height: 2px !important;
+        margin-right: 0px !important;
+        margin-top: 0px !important;
+        color: #f0b463 !important;
+        background-color: #f0b463 !important;
+        opacity: 6 !important;
+      }
+
+      .bigcard {
+        margin-left: 45px !important;
+      }
+
+    }
+
+    #backgroundimage {
+      background-image: url({% static 'cov.jpg' %});
+      width: 100%;
+      height: 110vh;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+
+      position: relative;
+    }
+
+
+
+
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      padding: 64px;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both
+    }
+
+    .column-66 {
+      float: left;
+      width: 66.66666%;
+      padding: 20px;
+    }
+
+    .column-33 {
+      float: left;
+      width: 33.33333%;
+      padding: 20px;
+    }
+
+    .large-font {
+      font-size: 48px;
+    }
+
+    .xlarge-font {
+      font-size: 64px
+    }
+
+    .button {
+      border: none;
+      color: white;
+      padding: 14px 28px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #04AA6D;
+    }
+
+    img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: 1000px) {
+
+      .column-66,
+      .column-33 {
+        width: 100%;
+        text-align: center;
+      }
+
+      img {
+        margin: auto;
+      }
+
+    }
+
+    .navbar {
+      box-shadow: box-shadow: 0 2px 0px 0 rgb(0 0 0 / 0%), 0 2px 0px 0 rgb(0 0 0 / 0%);
+      font-weight: 300;
+    }
+
+    .navbar,
+    .pagination .page-item.active .page-link {
+      -webkit-box-shadow: none;
+    }
+  </style>
+
+  <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=0fb6305e9adf5' async='true'></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: transparent; height: 85px; ">
+    <div class="container-fluid" style="background-color: transparent;">
+      <a class="navbar-brand" href="#"><img src="{% static 'log.png' %}" alt=""
+          style="height: 86px; width: 146px; background: #ffffff08; "></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="background-image: black;"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" data-toggle="collapse"
+        data-target="#navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" style=" padding-right: 41px; font-weight: bold; color: white;
+           ">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}" style=" padding-right: 41px; font-weight: bold;  color: white;
+          ">About us</a>
+          </li>
+          <!--Dropdown primary-->
+          <div class="dropdown" style="padding-right: 41px;
+padding-top: 9px;">
+
+            <!--Trigger-->
+            <a class=" dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" style="font-weight: bold; color: white;
+      ">Categories</a>
+
+            <!--Menu-->
+            <div class="dropdown-menu dropdown-primary">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <!--/Dropdown primary-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'blog' %}" style=" padding-right: 41px; font-weight: bold; color: white;
+            ">Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" style=" padding-right: 41px; font-weight: bold;color: white;
+            ">Contact us</a>
+          </li>
+        </ul>
+        <form class="d-flex" method="GET" action="{% url 'search' %}">
+          <input name="q" class="form-control me-2" placeholder="Search" aria-label="Search" style="height: 33px;
+        margin-top: 13px;">
+          <button style="height: 34px;
+         margin-top: 12px;
+         font-size: 21px;
+         border-radius: 23px;
+         margin-left: -33px;
+     }"> <i class="fa fa-search"></i></button>
+
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+  <div id="backgroundimage"></div>
+
+  <br>
+  <br>
+
+
+
+
+
+
+
+
+  <section class="trend container-sm">
+
+    <div class="heading ">
+      <h2 style="font-weight: bold;">TRENDSETTER
+        <div class="line">
+
+          <hr class="hrline1" style="width: 3px; height: 221px; margin: 1rem 0;
+                color: #f0b463;
+                background-color: #f0b463;
+                border: 0;
+                opacity: 6;">
+        </div>
+
+        <hr class="hrline2" style="width: 3px;
+            height: 198px;
+            margin-right: 8px;
+            margin-top: 39px;
+            color: #61c4f6;
+            background-color: #61c4f6;
+            opacity: 6; ">
+      </h2>
+
+    </div>
+    {% for p in post|slice:":1" %}
+    <div class="contain trend">
+      <a href="{% url 'blogdesc' p.id p.slug %}">
+        <div class="card mb-3 c11" style="width: 18rem; margin-left: 45px; max-height: 271px;">
+          <img src="/media/{{p.image}}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <p class="card-text txt" style=" margin-top: -8px;">{{p.category.name}}</p>
+            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder;">
+              {{p.title}}
+            </p>
+          </div>
+        </div>
+      </a>
+
+      {% endfor %}
+
+
+
+      <div class="card mb-3 c22" style="max-width: 540px; margin-left: 22px; max-height: 270px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg" alt="..." class="img-fluid"
+              style="max-height:270px; width: 280px;" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">ajdwjdkhakjfhk</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.
+              </p>
+              <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="bigcard" style="margin-left: 217px;">
+
+      <div class="card mb-3 c33" style="    max-width: 854px;
+        max-height: 224px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg" alt="..." class="img-fluid"
+              style="max-height:224px; width: 280px;" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.
+              </p>
+              <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <section class="trend container-sm">
+    <div class="heading" style="margin-bottom: 335px;">
+      <h2 style="font-weight: bold;">LATEST BLOGS
+        <div class="line">
+
+          <hr class="hrline1" style="width: 3px; height: 221px; margin: 1rem 0;
+                color: #f0b463;
+                background-color: #f0b463;
+                border: 0;
+                opacity: 6;">
+        </div>
+
+        <hr class="hrline2" style="width: 3px;
+            height: 198px;
+            margin-right: 8px;
+            margin-top: 39px;
+            color: #61c4f6;
+            background-color: #61c4f6;
+            opacity: 6; ">
+      </h2>
+
+    </div>
+
+    <div class="contain lastest">
+      <a href="#">
+        <div class="card mb-3 c11 c44" style="width: 18rem; margin-left: 45px; max-height: 271px;">
+          <img src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <p class="card-text txt" style=" margin-top: -8px;">
+              Some quick example text to build on the card title and make up the bulk of the
+              card's content.
+            </p>
+          </div>
+        </div>
+      </a>
+
+
+      <a href="#">
+        <div class="card mb-3 c11 c55" style="width: 18rem; margin-left: 45px; max-height: 271px;">
+          <img src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <p class="card-text txt" style=" margin-top: -8px;">
+              Some quick example text to build on the card title and make up the bulk of the
+              card's content.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="card c66" style="width: 18rem; margin-left: 15px; max-height: 558px;">
+      <img src="https://mdbootstrap.com/img/new/standard/city/062.jpg" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <hr>
+        <p class="card-text txt66" style="font-size:24px">
+          Some quick example text to build on the card title and make up the bulk of the
+          card's content.
+        </p>
+      </div>
+
+
+    </div>
+
+
+    <div class="contain lastest">
+      <a href="#">
+        <div class="card mb-3 c11 c77" style="width: 18rem; margin-left: 15px; max-height: 271px;">
+          <img src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <p class="card-text txt" style=" margin-top: -8px;">
+              Some quick example text to build on the card title and make up the bulk of the
+              card's content.
+            </p>
+          </div>
+        </div>
+      </a>
+
+
+      <a href="#">
+        <div class="card mb-3 c11 c88" style="width: 18rem; margin-left: 15px; max-height: 271px;">
+          <img src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <p class="card-text txt" style=" margin-top: -8px;">
+              Some quick example text to build on the card title and make up the bulk of the
+              card's content.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    </div>
+
+
+  </section>
+
+  <!-- categories? -->
+
+  <br>
+  <br>
+
+
+  <section class="trend container-sm">
+    <div class="heading" style="margin-bottom: 20px;">
+      <h2 style="font-weight: bold;">
+        <div class="line">
+
+
+        </div>
+
+
+      </h2>
+
+    </div>
+
+    <div class="contain latest">
+
+      <div class="bigcard" style="margin-left: 139px;">
+
+        <div class="card mb-3 c33" style="    max-width: 854px;
+        max-height: 224px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg" alt="..." class="img-fluid"
+                style="max-height:224px; width: 280px;" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural lead-in to
+                  additional content. This content is a little bit longer.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+  </section>
+
+  <br>
+  <br>
+
+
+
+
+  <!-- The App Section -->
+  <div class="container">
+    <div class="row">
+      <div class="column-66">
+        <h2 style="font-weight: bold; text-transform: uppercase;">we Categorize</h2>
+        <h2 style="color:MediumSeaGreen; font-weight: bold; text-transform: uppercase;">The best for you!!</h2>
+        <p> You should buy this app because lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.</p>
+        <button class="button">Download Application</button>
+      </div>
+      <div class="column-33">
+        <img src="{% static 'categories.png' %}" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- Clarity Section -->
+  <div class="container" style="background-color:#f1f1f1">
+    <div class="row">
+      <div class="column-33">
+        <img src="{% static 'BLOG.png' %}" alt="">
+      </div>
+      <div class="column-66">
+        <h1 class="xlarge-font"><b>Clarity</b></h1>
+        <h1 class="large-font" style="color:red;"><b>Pixels, who?</b></h1>
+        <p><span style="font-size:24px">A revolution in resolution.</span> Sharp and clear photos with the world's best
+          photo engine, incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquipex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <button class="button" style="background-color:red">Read More</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- The App Section -->
+  <div class="container">
+    <div class="row">
+      <div class="column-66">
+        <h1 class="xlarge-font"><b>The App</b></h1>
+        <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why buy it?</b></h1>
+        <p><span style="font-size:36px">Take photos like a pro.</span> You should buy this app because lorem ipsum
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <button class="button">Download Application</button>
+      </div>
+      <div class="column-33">
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+    crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
+
+  <script>
+    $(window).scroll(function () {
+      var scroll = $(window).scrollTop();
+      if (scroll < 140) {
+        $('.navbar').css('background', 'transparent');
+        $('.container-fluid ').css('background', 'transparent');
+        $('.navbar').css('box-shadow', 'none')
+        $('.navbar, .pagination .page-item.active .page-link ').css('-webkit-box-shadow', 'none')
+        $('.navbar.navbar-light .breadcrumb .nav-item .nav-link, .navbar.navbar-light .navbar-nav .nav-item .nav-link').css('color', '#ffffff')
+        $('a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover').css('color', '#ffffff')
+      } else {
+        $('.navbar ').css('background', '#ffffff');
+        $('.container-fluid ').css('background', '#ffffff');
+        $('.navbar').css('box-shadow', '0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%)')
+        $('.navbar, .pagination .page-item.active .page-link ').css('-webkit-box-shadow', '0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);')
+        $('.navbar.navbar-light .breadcrumb .nav-item .nav-link, .navbar.navbar-light .navbar-nav .nav-item .nav-link').css('color', '#000000')
+        $('a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover').css('color', '#000000')
+
+
+
+      }
+    });
+  </script>
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+
+
+
+  <!-- /. End Appy chatbot widget code 
+<script id="appyWidget" src="https://chatwidget.software/widget/build.js?cid=162304733873534241-162304733880646355"></script>
+-->
+
+  <script type="text/javascript">
+    (function (d, m) {
+      var kommunicateSettings =
+        { "appId": "96e871d557f5a83fe287f408a2b6300e", "popupWidget": true, "automaticChatOpenOnNavigation": true };
+      var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+      s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+      var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+      window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+  </script>
+
+</body>
+
+</html>
