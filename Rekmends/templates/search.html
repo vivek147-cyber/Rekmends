@@ -28,7 +28,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   {% load static %}
 
-  <title>Hello, world!</title>
+  <title>search The Best For You</title>
 
   <style>
     html {
@@ -58,75 +58,38 @@
       }
     }
 
-
-
-    * {
-      box-sizing: border-box;
-    }
-
-    /* Add a gray background color with some padding */
-    body {
-      font-family: Arial;
-      padding: 20px;
-      background: #f1f1f1;
-    }
-
-    /* Header/Blog Title */
-    .header {
-      padding: 30px;
-      font-size: 40px;
-      text-align: center;
-      background: white;
-    }
-
-    /* Create two unequal columns that floats next to each other */
-    /* Left column */
-    .leftcolumn {
-      float: left;
-      width: 75%;
-    }
-
-    /* Right column */
-    .rightcolumn {
-      float: left;
-      width: 25%;
-      padding-left: 20px;
-    }
-
-    /* Fake image */
-    .fakeimg {
-      background-color: #aaa;
-      width: 100%;
-      padding: 20px;
-    }
-
-    /* Add a card effect for articles */
-    .card {
-      background-color: white;
-      padding: 20px;
-      margin-top: 20px;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
+ .card {
+     border-radius: 10px;
+    box-shadow: 0px 1px 13px 4px #d6d6d6, 20px -20px 30px #ffffff;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
     }
 
 
-    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-    @media screen and (max-width: 800px) {
-
-      .leftcolumn,
-      .rightcolumn {
-        width: 100%;
-        padding: 0;
-      }
+    .col-md-3 {
+      display: inline-block;
+      margin-left: -4px;
     }
+
+    .col-md-3 img {
+
+      width: 227px;
+      height: 242px;
+    }
+
+   
+
 
     .blog:hover{
      box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+   
+
+    @media (max-width:575px){
+   .s{
+     width: 294px!important;
+   }
     }
   </style>
 
@@ -134,6 +97,41 @@
 
 
 <body>
+
+
+  {% include 'nav.html' %}
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="bg container s"  style="width: 280px; ">
+
+    <img src="{% static 'search.png' %}" alt="" style="height: 221px;">
+
+  </div>
+  
+
+ <div class="container s" style="width: 649px; ">
+<form class="d-flex" method="GET" action="{% url 'search' %}">
+  <input name="q" class="form-control me-2" placeholder="Search" aria-label="Search" required  style="height: 43px;
+  margin-top: 13px;
+  box-shadow: 0px 0px 10px 0px #dbd7d7a1;
+  border-radius: 23px;
+  border: 2px solid #d9d1d1;">
+<button style="height: 43px;
+width: 45px;
+margin-top: 12px;
+font-size: 21px;
+border-radius: 32px;
+border: 1px solid #00d0ff;
+margin-left: -53px;
+background: #00d0ff;"> <i class="fa fa-search"></i></button>
+
+  </form>
+</div>
 
  
 
@@ -143,30 +141,42 @@
   <div id='products' class="col-lg-9 mx-auto">
     <div class="row mx-auto">
 
-
-
+      <h2>BLOGS</h2>
+      <hr>
+      {% if post %}
       {% for i in post %}
       <div class="card blog mx-auto mb-3" id="{{i.id}}" style="width: 18rem;">
         <img src='{{i.image.url}}' class="card-img-top" alt="...">
         <div class="card-body">
           <span class="product-catagory">
-            <small>{{i.category.name}}</small>
+            <small style="border: 2px solid grey;
+            background-color: #80808061;
+            color: black;
+            border-radius: 11px;
+            font-size: 10px;
+            padding-right: 6px;
+            padding-left: 6px;">{{i.category.name}}</small>
 
           </span>
 
           <h4><a href="{% url 'blogdesc' i.id i.slug %}">{{i.title}}</a></h4>
+          <hr>
           <p>
           </p>
           <div class="product-bottom-details">
-            <div class="product-price">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores ut alias
-              laudantium aliquam eveniet ipsam quia ea a aut ipsum expedita, explicabo, odio quis vel soluta delectus
-              suscipit neque. Totam.</div>
+            <div class="product-price"> {% autoescape off %}
+
+                  {{i.decription|slice:":85"}}......
+                  {% endautoescape %}</div>
 
           </div>
         </div>
       </div>
       {% endfor %}
 
+    {% else %}
+<img src="{% static 'comingsoon.jpg' %}" alt="">
+ {% endif %}
 
 
      
@@ -179,6 +189,8 @@
 
 
 
+
+  {% include 'footer.html' %}
 
   <!-- Optional JavaScript; choose one of the two! -->
 

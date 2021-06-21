@@ -14,10 +14,15 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
   <!-- MDB -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet" />
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
   {% load static %}
 
@@ -69,6 +74,22 @@
       flex-wrap: wrap;
     }
 
+    @media (max-width:1200px) and (min-width:1400px) {
+
+      .c22 {
+        height: 270px !important;
+      }
+
+      .pic {
+        height: 270px !important;
+      }
+
+
+    }
+
+
+
+
 
     @media only screen and (max-width: 1200px) {
       .c11 {
@@ -91,6 +112,15 @@
         margin-top: -36px;
       }
 
+      .c22 {
+        height: 270px !important;
+      }
+
+      .pic {
+        height: 206px !important;
+      }
+
+
       .c66 {
         max-height: 427px !important;
         max-width: 15rem !important;
@@ -98,6 +128,10 @@
 
       .txt66 {
         font-size: 16px !important;
+      }
+
+      .card-img-top {
+        max-height: 165px !important;
       }
     }
 
@@ -109,6 +143,10 @@
       .c33 {
 
         margin-top: -3px;
+      }
+
+      .des {
+        display: none;
       }
 
 
@@ -169,9 +207,36 @@
 
     @media only screen and (max-width: 425px) {
 
+      
+      .con{
+        width: 182px!important;
+        height: 154px!important;
+      }
+
       #backgroundimage {
         background-image: url({% static 'covmob.jpg' %}) !important;
 
+      }
+
+      .input-group {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        flex-direction: column;
+        width: 97%;
+      }
+
+      .input-group>.form-control,
+      .input-group>.form-select {
+        position: relative;
+        flex: 1 1 auto;
+        width: 110%;
+        min-width: 0;
+      }
+
+      .btn {
+        margin-top: 9px !important;
       }
     }
 
@@ -195,7 +260,7 @@
       }
 
       .c66 {
-        margin-top: 589px !important;
+        margin-top: 513px !important;
         max-width: 17rem !important;
         margin-left: -277px !important;
       }
@@ -334,6 +399,8 @@
 
     @media screen and (max-width: 1000px) {
 
+
+
       .column-66,
       .column-33 {
         width: 100%;
@@ -355,12 +422,116 @@
     .pagination .page-item.active .page-link {
       -webkit-box-shadow: none;
     }
+
+
+    .newsletter {
+      padding: 80px 0;
+      background: #f2f2f2;
+    }
+
+    .newsletter .content {
+      max-width: 650px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .newsletter .content h2 {
+      color: #243c4f;
+      margin-bottom: 40px;
+    }
+
+    .newsletter .content .form-control {
+      height: 50px;
+      border-color: #ffffff;
+      border-radius: 0;
+    }
+
+    .newsletter .content.form-control:focus {
+      box-shadow: none;
+      border: 2px solid #243c4f;
+    }
+
+    .newsletter .content .btn {
+      min-height: 50px;
+      border-radius: 0;
+      background: #243c4f;
+      color: #fff;
+      font-weight: 600;
+    }
+
+
+    .product-price {
+      font-size: 18px;
+      color: #fbb72c;
+      font-weight: 600;
+    }
+
+    .product-price small {
+      font-size: 80%;
+      font-weight: 400;
+      text-decoration: line-through;
+      display: inline-block;
+      margin-right: 5px;
+      margin-left: 7px
+    }
+
+    .nav-link {
+      color: #fff;
+      padding-right: 41px !important;
+      font-weight: bold !important;
+
+      display: inline-block;
+
+      position: relative;
+    }
+
+    .nav-link:after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: #ffffff;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+    }
+
+    .nav-link:hover:after {
+      width: 80%;
+      left: 0;
+    }
+
+
+    .slick-prev:before,
+    .slick-next:before {
+      font-family: 'slick';
+      font-size: 20px;
+      line-height: 1;
+      opacity: .75;
+      color: black;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(140, 235, 241, 0.692);
+      color: #000;
+    }
   </style>
 
   <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=0fb6305e9adf5' async='true'></script>
+
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
 </head>
 
 <body>
+
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: transparent; height: 85px; ">
     <div class="container-fluid" style="background-color: transparent;">
       <a class="navbar-brand" href="#"><img src="{% static 'log.png' %}" alt=""
@@ -382,7 +553,7 @@
           </li>
           <!--Dropdown primary-->
           <div class="dropdown" style="padding-right: 41px;
-padding-top: 9px;">
+padding-top: 9px; padding-bottom: 6px;">
 
             <!--Trigger-->
             <a class=" dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
@@ -391,10 +562,9 @@ padding-top: 9px;">
 
             <!--Menu-->
             <div class="dropdown-menu dropdown-primary">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              {% for category in catblog %}
+              <a class="dropdown-item" href="{% url 'category' %}?category={{category.name}}">{{category.name}}</a>
+              {% endfor %}
             </div>
           </div>
           <!--/Dropdown primary-->
@@ -403,19 +573,29 @@ padding-top: 9px;">
             ">Blogs</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'products' %}" style=" padding-right: 41px; font-weight: bold; color: white;
+            ">Products</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'contact' %}" style=" padding-right: 41px; font-weight: bold;color: white;
             ">Contact us</a>
           </li>
         </ul>
         <form class="d-flex" method="GET" action="{% url 'search' %}">
-          <input name="q" class="form-control me-2" placeholder="Search" aria-label="Search" style="height: 33px;
-        margin-top: 13px;">
+          <input name="q" type="search" class="form-control me-2" placeholder="Search" aria-label="Search" required
+            style="height: 33px;
+            margin-top: 13px;
+            box-shadow: 0px 0px 10px 0px #dbd7d7a1;
+            border-radius: 17px;
+            border: 2px solid white;">
           <button style="height: 34px;
-         margin-top: 12px;
-         font-size: 21px;
-         border-radius: 23px;
-         margin-left: -33px;
-     }"> <i class="fa fa-search"></i></button>
+          margin-top: 12px;
+          font-size: 21px;
+          border-radius: 23px;
+          border: 1px solid #00d0ff;
+          margin-left: -33px;
+          background: #00d0ff;
+     "> <i class="fa fa-search"></i></button>
 
         </form>
       </div>
@@ -423,10 +603,20 @@ padding-top: 9px;">
   </nav>
 
 
-  <div id="backgroundimage"></div>
+  <div id="backgroundimage">
+
+  </div>
+
+
+
+  <br>
+
 
   <br>
   <br>
+  <br>
+
+
 
 
 
@@ -462,10 +652,12 @@ padding-top: 9px;">
     <div class="contain trend">
       <a href="{% url 'blogdesc' p.id p.slug %}">
         <div class="card mb-3 c11" style="width: 18rem; margin-left: 45px; max-height: 271px;">
-          <img src="/media/{{p.image}}" class="card-img-top" alt="..." />
+          <img src="{{p.image.url}}" class="card-img-top" alt="..." style="height: 176px;" />
           <div class="card-body">
             <p class="card-text txt" style=" margin-top: -8px;">{{p.category.name}}</p>
-            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder;">
+            <br>
+
+            <p class="card-text txt" style=" margin-top: -35px; font-weight: bolder; color: #000;">
               {{p.title}}
             </p>
           </div>
@@ -475,59 +667,116 @@ padding-top: 9px;">
       {% endfor %}
 
 
+      {% for p in post|slice:"1:2" %}
+      <a href="{% url 'blogdesc' p.id p.slug %}">
+        <div class="card mb-3 c22" style="max-width: 540px; margin-left: 22px; height: 270px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{p.image.url}}" alt="..." class="img-fluid pic" style="height:270px; width: 280px;" />
 
-      <div class="card mb-3 c22" style="max-width: 540px; margin-left: 22px; max-height: 270px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg" alt="..." class="img-fluid"
-              style="max-height:270px; width: 280px;" />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">ajdwjdkhakjfhk</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This content is a little bit longer.
-              </p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
             </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                
+                <p class="card-title txt" style=" font-weight: bolder; color: #000;"> {{p.title}} | {{p.category.name}}  </p>
+                <hr>
+                <p class="card-text">
+                  <small class="text-muted" style="color: black;">{{p.created_at}}</small>
+                </p>
+                <p class="card-text des" style="color: black;">
+                  {% autoescape off %}
+
+                  {{p.decription|slice:":85"}}......
+                  {% endautoescape %}
+                </p>
+
+              </div>
+            </div>
+
           </div>
+
         </div>
-      </div>
+      </a>
+      {% endfor %}
+
     </div>
 
 
 
     <div class="bigcard" style="margin-left: 217px;">
-
-      <div class="card mb-3 c33" style="    max-width: 854px;
+      {% for p in post|slice:"2:3" %}
+      <a href="{% url 'blogdesc' p.id p.slug %}">
+        <div class="card mb-3 c33" style="    max-width: 854px;
         max-height: 224px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg" alt="..." class="img-fluid"
-              style="max-height:224px; width: 280px;" />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This content is a little bit longer.
-              </p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </p>
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{p.image.url}}" alt="..." class="img-fluid" style="max-height:224px; width: 280px;" />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                
+                <p class="card-title txt" style="  font-weight: bolder; color: #000;">{{p.title}} | {{p.category.name}}</p>
+                <hr>
+                <p class="card-text">
+                  <small class="text-muted">{{p.created_at}}</small>
+                </p>
+                <p class="card-text">
+                  {% autoescape off %}
+
+                  {{p.decription|slice:":75"}}......
+                  {% endautoescape %}
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
+      {% endfor %}
 
     </div>
 
 
   </section>
+
+
+
+  <div class="container ">
+    <h2 style="font-weight: bold; ">BEST DEALS</h2>
+    <hr>
+    <div class="row mx-auto slider">
+      {% for i in products %}
+      <div class="card " style="width: 18rem;">
+        <img class="card-img-top" src="{{i.image.url}}" alt="Card image cap">
+        <div class="card-body">
+          <small style="border: 2px solid white;
+            background-color: #80808061;
+            color: black;
+            border-radius: 11px;
+            font-size: 10px;
+            padding-right: 6px;
+            padding-left: 6px;">{{i.category}}</small>
+
+          </span>
+          <h5 class="card-title">{{i.name}}</h5>
+          <p class="card-text">{{i.description}}</p>
+          <div class="product-price">₹{{i.newprice}}<small>₹{{i.oldprice}}</small></div>
+          <a href="{{i.product_link}}" target="_blank" class="btn "
+            style="background-color: #61c4f6; font-weight: bold; color: white;">buy now</a>
+        </div>
+      </div>
+      {% endfor %}
+
+
+
+    </div>
+  </div>
+
+  <center>
+
+    <a href="{% url 'products' %}" class="btn  shopnow"
+      style="background-color: #61c4f6; font-weight: bold; color: white;">shopnow</a>
+  </center>
+
 
 
   <br>
@@ -560,72 +809,92 @@ padding-top: 9px;">
     </div>
 
     <div class="contain lastest">
-      <a href="#">
+      {% for i in latestpost|slice:":1" %}
+      <a href="{% url 'blogdesc' i.id i.slug %}">
         <div class="card mb-3 c11 c44" style="width: 18rem; margin-left: 45px; max-height: 271px;">
-          <img src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" class="card-img-top" alt="..." />
+          <img src="{{i.image.url}}" class="card-img-top" alt="..." style="max-height:193px " />
           <div class="card-body">
-            <p class="card-text txt" style=" margin-top: -8px;">
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+            <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
+            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder;">
+              {{i.title}}
             </p>
           </div>
         </div>
       </a>
+      {% endfor %}
 
-
-      <a href="#">
+      {% for i in latestpost|slice:"1:2" %}
+      <a href="{% url 'blogdesc' i.id i.slug %}">
         <div class="card mb-3 c11 c55" style="width: 18rem; margin-left: 45px; max-height: 271px;">
-          <img src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" class="card-img-top" alt="..." />
+          <img src="{{i.image.url}}" class="card-img-top " alt="..." style="max-height:193px " />
           <div class="card-body">
-            <p class="card-text txt" style=" margin-top: -8px;">
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+            <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
+            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder;">
+              {{i.title}}
             </p>
           </div>
         </div>
       </a>
+      {% endfor %}
     </div>
 
-    <div class="card c66" style="width: 18rem; margin-left: 15px; max-height: 558px;">
-      <img src="https://mdbootstrap.com/img/new/standard/city/062.jpg" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <hr>
-        <p class="card-text txt66" style="font-size:24px">
-          Some quick example text to build on the card title and make up the bulk of the
-          card's content.
-        </p>
+    {% for i in latestpost|slice:"2:3" %}
+    <a href="{% url 'blogdesc' i.id i.slug %}">
+      <div class="card c66" style="width: 18rem; margin-left: 15px; max-height: 537px;">
+        <img src="{{i.image.url}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
+          <p class="card-text txt66" style=" margin-top: -16px; font-weight: bolder;">
+            {{i.title}}
+          </p>
+          <hr>
+          <p class="card-text">
+            <small class="text-muted">{{i.created_at}}</small>
+          </p>
+
+          <p class="card-text txt66" style="font-size:14px">
+            {% autoescape off %}
+
+            {{i.decription|slice:":115"}}......
+            {% endautoescape %}
+          </p>
+          <br>
+        </div>
+
+
       </div>
-
-
-    </div>
+    </a>
+    {% endfor %}
 
 
     <div class="contain lastest">
-      <a href="#">
+      {% for i in latestpost|slice:"3:4" %}
+      <a href="{% url 'blogdesc' i.id i.slug %}">
         <div class="card mb-3 c11 c77" style="width: 18rem; margin-left: 15px; max-height: 271px;">
-          <img src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" class="card-img-top" alt="..." />
+          <img src="{{i.image.url}}" class="card-img-top" alt="..." style="max-height:193px " />
           <div class="card-body">
-            <p class="card-text txt" style=" margin-top: -8px;">
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+            <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
+            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder;">
+              {{i.title}}
             </p>
           </div>
         </div>
       </a>
+      {% endfor %}
 
-
-      <a href="#">
+      {% for i in latestpost|slice:"4:5" %}
+      <a href="{% url 'blogdesc' i.id i.slug %}">
         <div class="card mb-3 c11 c88" style="width: 18rem; margin-left: 15px; max-height: 271px;">
-          <img src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" class="card-img-top" alt="..." />
+          <img src="{{i.image.url}}" class="card-img-top" alt="..." style="max-height:161px " />
           <div class="card-body">
-            <p class="card-text txt" style=" margin-top: -8px;">
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+            <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
+            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder;">
+              {{i.title}}
             </p>
           </div>
         </div>
       </a>
+      {% endfor %}
     </div>
 
     </div>
@@ -633,8 +902,47 @@ padding-top: 9px;">
 
   </section>
 
+
+  <br>
+  <br>
+
+
+
   <!-- categories? -->
 
+  <br>
+
+
+
+  <section class="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="content">
+            <h2>SUBSCRIBE TO OUR NEWSLETTER</h2>
+            <form method="POST">
+              {% csrf_token %}
+              {% if error%}
+              <div class="alert alert-danger" role="alert">
+                {{error}}
+              </div>
+              {% endif %}
+              <div class="input-group">
+                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                <span class="input-group-btn">
+                  <button class="btn" type="submit" style="margin-top: 0px; width: 139px;
+                              font-size: 10px;
+                              font-weight: bold;
+                              height: 50px;
+                              background-color: #61c4f6; color: white;">Subscribe Now</button>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <br>
   <br>
 
@@ -694,11 +1002,12 @@ padding-top: 9px;">
     <div class="row">
       <div class="column-66">
         <h2 style="font-weight: bold; text-transform: uppercase;">we Categorize</h2>
-        <h2 style="color:MediumSeaGreen; font-weight: bold; text-transform: uppercase;">The best for you!!</h2>
-        <p> You should buy this app because lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.</p>
-        <button class="button">Download Application</button>
+        <h2 style="color:rgb(0, 0, 0); font-weight: bold; text-transform: uppercase;">The best for you!!</h2>
+        <hr>
+        <p>Everything sorted! Sounds good right? So that’s exactly what we have done here, put all your favourite
+          products in the right categories to make your search easier. Go ahead and explore the best products sorted out
+          just for you.</p>
+        <a href="{% url 'category' %}" class="btn"  style="background-color: #61c4f6; font-weight: bold; color: white;">Click Here</a>
       </div>
       <div class="column-33">
         <img src="{% static 'categories.png' %}" alt="">
@@ -713,13 +1022,12 @@ padding-top: 9px;">
         <img src="{% static 'BLOG.png' %}" alt="">
       </div>
       <div class="column-66">
-        <h1 class="xlarge-font"><b>Clarity</b></h1>
-        <h1 class="large-font" style="color:red;"><b>Pixels, who?</b></h1>
-        <p><span style="font-size:24px">A revolution in resolution.</span> Sharp and clear photos with the world's best
-          photo engine, incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquipex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <button class="button" style="background-color:red">Read More</button>
+        <h2 style="color:rgb(0, 0, 0); font-weight: bold; text-transform: uppercase;">Checkout Our Blogs</h2>
+        <hr>
+        <p>Here are blogs related to your favourite products containing the details,
+            reviews, recommendations and comparisons of the products you are looking for. These will guide you through
+            your way of choosing the right one and give you an insight of each enlisted product.</p>
+          <a href="{% url 'blog' %}"  class="btn" style="background-color: #f0b463; font-weight: bold; color: white;">Click Here</a>
       </div>
     </div>
   </div>
@@ -728,16 +1036,14 @@ padding-top: 9px;">
   <div class="container">
     <div class="row">
       <div class="column-66">
-        <h1 class="xlarge-font"><b>The App</b></h1>
-        <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why buy it?</b></h1>
-        <p><span style="font-size:36px">Take photos like a pro.</span> You should buy this app because lorem ipsum
-          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <button class="button">Download Application</button>
+        <h2 style="font-weight: bold; text-transform: uppercase;">ANY QUERIES?</h2>
+        <h2 style="color:rgb(0, 0, 0); font-weight: bold; text-transform: uppercase;">CONATCT US NOW</h2>
+        <hr>
+        <p>Got any doubts or suggestions or feedback? Feel free to contact us and talk directly to our team.</p>
+        <a href="{% url 'contact' %}" class="btn"  style="background-color: #61c4f6; font-weight: bold; color: white;">Click Here</a>
       </div>
-      <div class="column-33">
-
+      <div class="column-33" style="margin-top: -44px;">
+        <lottie-player class="con" src="https://assets8.lottiefiles.com/packages/lf20_IG1Hp6.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
       </div>
     </div>
   </div>
@@ -745,8 +1051,82 @@ padding-top: 9px;">
 
 
 
+
+  <center>
+    <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_accg3lm5.json" background="transparent" speed="1"
+      style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+
+    <h2>FAQ</h2>
+  </center>
+
+
+  <div class="accordion accordion-flush container" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Accordion Item #1
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+          <code>.accordion-flush</code> class. This is the first item's accordion body.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          Accordion Item #2
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+          <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled
+          with some actual content.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          Accordion Item #3
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
+          <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening
+          here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more
+          representative of how this would look in a real-world application.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  {% include 'footer.html' %}
+
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
@@ -755,7 +1135,9 @@ padding-top: 9px;">
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
+
+
+
 
   <script>
     $(window).scroll(function () {
@@ -776,8 +1158,46 @@ padding-top: 9px;">
         $('a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover').css('color', '#000000')
 
 
-
       }
+    });
+  </script>
+
+  <script>
+
+    $('.slider').slick({
+      dots: true,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
     });
   </script>
 

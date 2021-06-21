@@ -2,57 +2,54 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-<!-- MDB -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet" />
-<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    {% load static %}
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
 
-    <title>Hello, world!</title>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet" />
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-        * {
-            font-family: 'Montserrat';
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  {% load static %}
 
-        }
+  <title>About Us</title>
 
-        .navbar-brand {
-            padding-top: -0.6875rem;
-            padding-bottom: -0.6875rem;
-            margin-right: 4rem;
-            font-size: 1.25rem;
-            text-decoration: none;
-            white-space: nowrap;
-        }
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      font-family: 'Montserrat';
+
+    }
 
 
 
-        
-
-        .cover {
-            display: flex;
-            flex-direction: row;
-        }
 
 
-        
+
+
+    .cover {
+      display: flex;
+      flex-direction: row;
+    }
+
+
+
     .container {
       padding: 64px;
     }
@@ -80,7 +77,7 @@
     }
 
     .xlarge-font {
-      font-size: 64px
+      font-size: 47px
     }
 
     .button {
@@ -114,247 +111,331 @@
 
     @media screen and (max-width: 991px) {
 
-      .bg{
-        margin-left: 2px!important;
+      .bg {
+        margin-left: 2px !important;
       }
 
     }
 
-    
+    .flip-card {
+      background-color: transparent;
+      width: 300px;
+      height: 300px;
+      perspective: 1000px;
+      border: 75px;
+    }
 
-    
-    </style>
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .flip-card-front {
+      background-color: #bbb;
+      color: black;
+    }
+
+    .flip-card-back {
+      background-color: #61c4f6;
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      font-family: 'slick';
+      font-size: 20px;
+      line-height: 1;
+      opacity: .75;
+      color: black;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
 
 </head>
 
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"
-        style="background-color: #ffffff!important; height: 85px; box-shadow: 0 2px 5px 0 rgb(0 0 0), 0 2px 10px 0 rgb(0 0 0 / 92%);">
-        <div class="container-fluid" style="background-color: #ffffff;">
-            <a class="navbar-brand" href="#"><img src="{% static 'logo.png' %}" alt=""
-                    style="height: 86px; width: 146px;"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="background-image: black;"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" style=" padding-right: 41px;">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style=" padding-right: 41px;">About us</a>
-                    </li>
-                    <!--Dropdown primary-->
-                    <div class="dropdown" style="padding-right: 41px;
-padding-top: 9px;">
+  {% include 'nav.html' %}
 
-                        <!--Trigger-->
-                        <a class=" dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Categories</a>
-
-                        <!--Menu-->
-                        <div class="dropdown-menu dropdown-primary">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div>
-                    <!--/Dropdown primary-->
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" style=" padding-right: 41px;">Blogs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" style=" padding-right: 41px;">Contact
-                            us</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 33px;
-        margin-top: 13px;"> <a type="submit" style="height: 34px;
-    margin-top: 15px;
-    font-size: 21px;"><i class="fa fa-search"></i></a></input>
-
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <br>
-    <br>
-    <br>
+  <br>
+  <br>
+  <br>
 
 
 
-    <div class="container marketing">
+  <div class="container marketing">
     <div class="row featurette">
-        <div class="col-md-7">
-            <h1 class="xlarge-font">what we do?</h1>
-            <h1 class="large-font" style="color:MediumSeaGreen;"><b>Scroll down</b></h1>
-          <p >Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
-          <button class="button">Download Application</button>
-        </div>
-        <div class="col-md-5">
-            <img src="{% static 'about.png' %}" alt="">
+      <div class="col-md-7">
+        <h1 class="xlarge-font" style="font-weight: bold; text-transform: uppercase; ">About us</h1>
+        <hr>
+
+        <p style="font-size: 19px;">Rekmends is the website you come to when buying something and you want a hassle-free
+          quick guide to the
+          product that would best fit your requirements.</p>
+        <a href="#what" class="btn" style="background-color: #61c4f6; font-weight: bold; color: white;">Click Here For
+          More</a>
+      </div>
+      <div class="col-md-5" style="margin-top: 18px;">
+        <img src="{% static 'about.png' %}" alt="">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="advertisement container " style="border: 2px solid black; height: 125px;">
+
+  </div>
+
+
+
+
+  <div class="container ">
+    <h2 style="font-weight: bold; "> MEET OUR TEAM</h2>
+    <hr>
+    <div class="row mx-auto slider">
+
+
+      <div class="flip-card" style="margin-left: 13px;
+      margin-right: 13px;">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{% static 'vivi.jpeg' %}" alt="Avatar" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <h1>VIVEK SINGH</h1>
+            <hr>
+            <p>Co-Founder of REKMENDS</p>
+
+          </div>
         </div>
       </div>
+
+
+      <div class="flip-card" style="margin-left: 13px;
+      margin-right: 13px;">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{% static 'yash.jpeg' %}" alt="Avatar" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <h1>YASH GUPTA</h1>
+            <hr>
+            <p>Co-Founder of REKMENDS</p>
+          </div>
+        </div>
       </div>
 
 
-
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background-image: url({% static '6.jpg' %}); background-size:cover" >
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-          <h1 class="display-4 fw-normal">MEET THE TEAM</h1>
-          <p class="lead fw-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
-          <a class="btn btn-outline-secondary" href="#">CONTACT US</a>
-        </div>
-        <div class="product-device shadow-sm d-none d-md-block" ></div>
-
-        </div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-      </div>
-
-      <div class="container px-4 py-5" id="custom-cards">
-        <h2 class="pb-2 border-bottom">Custom cards</h2>
-    
-        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-          <div class="col">
-            <div class="card card-cover overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url({% static 'vivek.jpeg' %}); background-size: cover;    border-radius: 452px;
-            /* height: 96px; */
-            height: 318px;
-            width: 328px;
-        ">
-              
-              <div class="txt text-center" style="margin-top: 218px;">
-                <h4>Vivek singh</h4>
-                <hr>
-                <span>Co-founder</span>
-              </div>
-              
-            </div>
-
-
-           
-         
+      <div class="flip-card" style="margin-left: 13px;
+      margin-right: 13px;">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{% static 'neha.jpeg' %}" alt="Avatar" style="width:300px;height:300px;">
           </div>
-          <div class="col">
-            <div class="card card-cover overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url({% static 'vivek.jpeg' %}); background-size: cover;    border-radius: 452px;
-            /* height: 96px; */
-            height: 318px;
-            width: 328px;
-        ">
-              
-            </div>
-          </div>
-    
-          <div class="col">
-            <div class="card card-cover overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url({% static 'vivek.jpeg' %}); background-size: cover;    border-radius: 452px;
-            /* height: 96px; */
-            height: 318px;
-            width: 328px;
-        ">
-              
-            </div>
-          </div>
-
-
-          <div class="col bg" style="margin-left: 233px;">
-            <div class="card card-cover overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url({% static 'vivek.jpeg' %}); background-size: cover;    border-radius: 452px;
-            /* height: 96px; */
-            height: 318px;
-            width: 328px;
-        ">
-              
-            </div>
-          </div>
-
-
-          <div class="col">
-            <div class="card card-cover overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url({% static 'vivek.jpeg' %}); background-size: cover;    border-radius: 452px;
-            /* height: 96px; */
-            height: 318px;
-            width: 328px;
-        ">
-              
-            </div>
-          </div>
-
-          
-          </div>
-
-
-
-
-    <div class="container marketing">
-
-       
-        <!-- START THE FEATURETTES -->
-    
-        <hr class="featurette-divider">
-    
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
-          </div>
-          <div class="col-md-5">
-               <img src="{% static '4.png' %}" alt="">    
+          <div class="flip-card-back">
+            <h1>NEHA GUPTA</h1>
+            <hr>
+            <p>Co-Founder of REKMENDS</p>
           </div>
         </div>
-    
-        <hr class="featurette-divider">
-    
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
-          </div>
-          <div class="col-md-5 order-md-1">
-            <img src="{% static '2.png' %}" alt="">       
-          </div>
-        </div>
-    
-        <hr class="featurette-divider">
-    
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
-          </div>
-          <div class="col-md-5">
-            <img src="{% static '3.png' %}" alt="">    
-          </div>
-        </div>
-    
-        <hr class="featurette-divider">
-    
-        <!-- /END THE FEATURETTES -->
-    
       </div>
 
 
 
 
-    <!-- Optional JavaScript; choose one of the two! -->
+      <div class="flip-card" style="margin-left: 13px;
+      margin-right: 13px;">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{% static 'vartika.jpeg' %}" alt="Avatar" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <h1>VARTIKA SINGH</h1>
+            <hr>
+            <p>Product/Blogs Recommender</p>
+          </div>
+        </div>
+      </div>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
+
+      <div class="flip-card" style="margin-left: 13px;
+      margin-right: 13px;">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{% static 'navya.jpeg' %}" alt="Avatar" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <h1>NAVYA GUPTA</h1>
+            <hr>
+            <p>The all in one Blogger</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
-        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
-        crossorigin="anonymous"></script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  <div class="container marketing" id="what">
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading" style="font-weight: bold; text-transform: uppercase;">WHAT WE DO?</h2>
+        <br>
+
+        <p class="lead">Rekmends is the website you come to when buying something and you want a hassle-free quick guide
+          to the product that would best fit your requirements. We go through thousands of products and recommend the
+          ones that rank at the top of the performance list and fit perfectly in your budget. Rekmends is a product recommendation company which
+          simplifies your online shopping experience and helps you skip the trouble of scrolling through your screen all
+          day and still not being able to find “the one” product thats perfect for you.
+        </p>
+      </div>
+      <div class="col-md-5">
+        <img src="{% static '4.png' %}" alt="">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading" style="font-weight: bold; text-transform: uppercase;">HOW WE DO IT?</h2>
+        <p class="lead">When you are planning to buy something, you need to list down the particular
+          qualities/specifications you need in that product, then you need to figure out where to buy from and then you
+          need to go through thousands of products to find one for yourself. We just cut that hassle short for you.
+          Our team goes through all those products in various categories and finds the ones that best fit a set of
+          requirements. This sorting is done on the basis of customer reviews, product ratings, first hand experience
+          from the users itself, guide from the experts in that field and our own personal experience with the products.
+        </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img src="{% static '2.png' %}" alt="">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading" style="font-weight: bold; text-transform: uppercase;">WHY TRUST US?</h2>
+        <p class="lead">Rekmends is a product recommendation company with the sole purpose of giving you a simplified
+          shopping experience. We deal in a variety of products from OTT platforms’ recommendations to utility products
+          to educational skills and courses. The product recommendations we give are not biased, they are purely based
+          on feedbacks, user experience and performance test which ensures the authenticity of the recommendations. We
+          spend hours and hours researching, analysing and sorting products to give you the best. All the opinions about
+          the products reviewed are from the writers and editors of Rekmends.</p>
+      </div>
+      <div class="col-md-5">
+        <img src="{% static '3.png' %}" alt="">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div>
+
+
+
+  {% include 'footer.html' %}
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+    crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
+  <script>
+
+    $('.slider').slick({
+      dots: true,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 5,
+      slidesToScroll: 5,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+  </script>
+
 
 </body>
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import categories,Post,Review,Contact
+from .models import categories,Post,Review,Contact,Product,subscribeform
 # Register your models here.
 
 class adminpost(admin.ModelAdmin):
@@ -13,4 +13,6 @@ class adminpost(admin.ModelAdmin):
 admin.site.register(categories)
 admin.site.register(Review)
 admin.site.register(Contact)
+admin.site.register(Product)
+admin.site.register(subscribeform)
 admin.site.register(Post,adminpost)

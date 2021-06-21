@@ -16,5 +16,8 @@ urlpatterns = [
     path('submit_review/<int:post_id>/',
          views.submit_review, name='submit_review'),
     path('search/', views.search, name='search'),
+    path('products/',views.products,name="products"),
+    path('nav/',views.nav,name="nav"),
+    path('footer/',views.footer,name="footer"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

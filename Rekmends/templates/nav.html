@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  {% load static %}
+
+  <title>Rekmends</title>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      font-family: 'Montserrat';
+
+    }
+
+    .navbar-brand {
+      padding-top: -0.6875rem;
+      padding-bottom: -0.6875rem;
+      margin-right: 4rem;
+      font-size: 1.25rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+
+
+    @media (max-width: 994px) {
+
+      .navbar {
+        height: 91px !important;
+        margin-top:-8px!important;
+        box-shadow: 0 2px 3px 10px rgb(0 0 0), 0 2px 7px 7px rgb(0 0 0)!important;
+      }
+    }
+
+  .nav-link{
+  color: rgb(0, 0, 0);
+  padding-right: 41px!important; 
+  font-weight: bold!important; 
+  
+  display: inline-block;
+ 
+  position: relative;
+}
+.nav-link:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #ff7300;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.nav-link:hover:after { 
+  width: 80%; 
+  left: 0; 
+}
+
+   
+
+    
+
+
+  </style>
+
+ 
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #fffffff; height: 85px; margin-top=-4px; ">
+    <div class="container-fluid" style="background-color: #ffffff;">
+      <a class="navbar-brand" href="{% url 'homepage' %}"><img src="{% static 'log.png' %}" alt=""
+          style="height: 86px; width: 146px; background: #ffffff08; "></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="background-image: black;"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" data-toggle="collapse"
+        data-target="#navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}" style=" padding-right: 41px; font-weight: bold; color: black;
+           ">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}" style=" padding-right: 41px; font-weight: bold;  color: black;
+          ">About us</a>
+          </li>
+          <!--Dropdown primary-->
+          <div class="dropdown" style="padding-right: 41px;
+padding-top: 9px; padding-bottom: 6px;">
+
+            <!--Trigger-->
+            <a class=" dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" style="font-weight: bold; color: black;
+      ">Categories</a>
+
+            <!--Menu-->
+            <div class="dropdown-menu dropdown-primary">
+            {% for category in catblog %}
+              <a class="dropdown-item" href="{% url 'category' %}?category={{category.name}}">{{category.name}}</a>
+            {% endfor %}
+            </div>
+          </div>
+          <!--/Dropdown primary-->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'blog' %}" style=" padding-right: 41px; font-weight: bold; color: black;
+            ">Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'products' %}" style=" padding-right: 41px; font-weight: bold; color: black;
+            ">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'contact' %}" style=" padding-right: 41px; font-weight: bold;color: black;
+            ">Contact us</a>
+          </li>
+        </ul>
+        <form class="d-flex" method="GET" action="{% url 'search' %}">
+          <input type="search" name="q" class="form-control me-2" placeholder="Search" aria-label="Search" required s style="height: 33px;
+            margin-top: 13px;
+            box-shadow: 0px 0px 10px 0px #dbd7d7a1;
+            border-radius: 17px;
+            border: 2px solid white;">
+          <button style="height: 34px;
+          margin-top: 12px;
+          font-size: 21px;
+          border-radius: 23px;
+          border: 1px solid #00d0ff;
+          margin-left: -33px;
+          background: #00d0ff;
+     "> <i class="fa fa-search"></i></button>
+
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+ 
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+
+
+
+  <!-- /. End Appy chatbot widget code 
+<script id="appyWidget" src="https://chatwidget.software/widget/build.js?cid=162304733873534241-162304733880646355"></script>
+-->
+
+  
+
+</body>
+
+</html>

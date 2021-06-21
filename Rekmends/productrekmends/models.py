@@ -1,3 +1,4 @@
+
 from typing import Reversible
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -76,3 +77,33 @@ class Contact(models.Model):
 
     def __str__(self):
        return self.name
+
+class Product(models.Model):
+    name=models.CharField(max_length=50,default='')
+    image=models.ImageField(default='', upload_to='attachments/')
+    description=models.TextField()
+    category=models.ForeignKey(
+        categories, null=True, on_delete=models.CASCADE)
+    discount=models.CharField(max_length=50 ,default='',blank=True)
+    oldprice=models.IntegerField()
+    newprice=models.IntegerField()
+    created_on= models.DateTimeField()
+    product_link=models.URLField(max_length=500,default='')
+
+    @staticmethod
+    def get_all_product_by_category_name(category_name):
+        if category_name:
+            return Product.objects.filter(category__name=category_name)
+        else:
+            return Product.objects.all();  
+
+    def __str__(self):
+       return self.name
+
+    
+
+class subscribeform(models.Model):
+    email=models.EmailField()
+
+    def __str__(self):
+       return self.email 
