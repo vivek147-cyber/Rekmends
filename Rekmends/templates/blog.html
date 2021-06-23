@@ -108,6 +108,32 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+
+    .card {
+      border-radius: 10px;
+      box-shadow: 0px 1px 13px 4px #d6d6d6, 20px -20px 30px #ffffff;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+
+    .col-md-3 {
+      display: inline-block;
+      margin-left: -4px;
+    }
+
+    .col-md-3 img {
+
+      width: 227px;
+      height: 242px;
+    }
+
+
+
+
+    .blog:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
   </style>
 
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -142,15 +168,19 @@
 
 
   <div class="container ">
-    <h2 style="font-weight: bold; ">BEST DEALS</h2>
+    <h2 style="font-weight: bold; ">TRENDING BLOGS</h2>
     <hr>
     <div class="row mx-auto slider">
       {% for i in trendpost %}
       <a href="{% url 'blogdesc' i.id i.slug %}">
-  <div class="card" style="height: 403px; margin-left: 3px; margin-right: 3px;">
+  <div class="card" style="height: 417px; margin-left: 10px; margin-right: 10px;">
+    <img src="{{i.image.url}}" alt="{{i.title}}" style="height: 314px;" >
     <div class="card-body">
-      <h5 class="card-title">{{i.title}}</h5>
-      <img src="{{i.image.url}}" alt="{{i.title}}" style="height: 324px;" >
+      <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
+          <br>
+            <p class="card-text txt" style=" margin-top: -35px; font-weight: bolder; color: #000;">
+              {{i.title}}
+            </p>
     </div>
   </div>
   </a>
@@ -177,32 +207,29 @@
 
 
       {% for i in post %}
-      
       <div class="card blog mx-auto mb-3" id="{{i.id}}" style="width: 18rem;">
+        <a href="{% url 'blogdesc' i.id i.slug %}">
         <img src='{{i.image.url}}' class="card-img-top" alt="...">
         <div class="card-body">
           <span class="product-catagory">
-            <small style="border: 2px solid grey;
-            background-color: #80808061;
-            color: black;
-            border-radius: 11px;
-            font-size: 10px;
-            padding-right: 6px;
-            padding-left: 6px;">{{i.category.name}}</small>
-
+            <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
           </span>
-
-          <h4><a href="{% url 'blogdesc' i.id i.slug %}">{{i.title}}</a></h4>
+             
+          <h4 class="card-text txt" style=" font-size: 18px; font-weight: bolder; color: black;">
+            {{i.title}}
+          </h4>
           <hr>
           <p>
           </p>
           <div class="product-bottom-details">
-            <div class="product-price">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores ut alias
-              laudantium aliquam eveniet ipsam quia ea a aut ipsum expedita, explicabo, odio quis vel soluta delectus
-              suscipit neque. Totam.</div>
+            <div class="product-price"> {% autoescape off %}
+
+              {{i.decription|slice:":85"}}......
+              {% endautoescape %}</div>
 
           </div>
         </div>
+      </a>
       </div>
       {% endfor %}
 

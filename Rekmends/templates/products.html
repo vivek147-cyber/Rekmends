@@ -103,9 +103,34 @@
     
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
+<div class="container ">
+  <h2 style="font-weight: bold; ">TRENDING BLOGS</h2>
+  <hr>
+  <div class="row mx-auto slider">
+    {% for i in trendpost %}
+    <a href="{% url 'blogdesc' i.id i.slug %}">
+<div class="card" style="height: 417px; margin-left: 10px; margin-right: 10px;">
+  <img src="{{i.image.url}}" alt="{{i.title}}" style="height: 314px;" >
+  <div class="card-body">
+    <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
+        <br>
+          <p class="card-text txt" style=" margin-top: -35px; font-weight: bolder; color: #000;">
+            {{i.title}}
+          </p>
+  </div>
+</div>
+</a>
+{% endfor %}
+</div>
+</div>
 
 
 

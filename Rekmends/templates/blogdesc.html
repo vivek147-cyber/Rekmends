@@ -20,6 +20,10 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet" />
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
+  
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=60cb11fbed0412001c7f52d8&product=sticky-share-buttons' async='async'></script>
     <title>{{blogdesc.title}}</title>
@@ -59,18 +63,29 @@
 
         aside {
             width: 30%;
-            height: 649px;
+            height: 1649px;
             padding-left: 15px;
             margin-left: 15px;
             float: right;
             font-style: italic;
-            background-color: lightgray;
+           
         }
 
         #st-1.st-left {
     left: 1471px;
     top: 136px;
 }
+
+.slick-prev:before,
+    .slick-next:before {
+      font-family: 'slick';
+      font-size: 20px;
+      line-height: 1;
+      opacity: .75;
+      color: black;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
     </style>
 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -122,7 +137,8 @@
 
         <aside>
 
-            <h3 class="text-center">Popular Post</h3>
+            <h3 class="text-center" style="font-weight: bold;">Popular Post</h3>
+            <hr>
          
             {% for i in p|slice:":3" %}
             <div class="fakeimg">
@@ -140,11 +156,14 @@
            
       <br>
 
+    <br>
+    <br>
+    <br>
+     
 
 
-
-
-        <h3 class="text-center">Popular Post</h3>
+        <h3 class="text-center" style="font-weight: bold;">Popular Post</h3>
+        <hr>
          
             {% for i in p|slice:":3" %}
             <div class="fakeimg">
@@ -178,51 +197,29 @@
         </div>
 
        
-
-        <div class="row mb-2 container">
-            <div class="col-md-6">
-              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                  <strong class="d-inline-block mb-2 text-primary">World</strong>
-                  <h3 class="mb-0">Featured post</h3>
-                  <div class="mb-1 text-muted">Nov 12</div>
-                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="stretched-link">Continue reading</a>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-        
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                  <strong class="d-inline-block mb-2 text-success">Design</strong>
-                  <h3 class="mb-0">Post title</h3>
-                  <div class="mb-1 text-muted">Nov 11</div>
-                  <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="stretched-link">Continue reading</a>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                  <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-        
-                </div>
-              </div>
+        <div class="container ">
+         
+            <div class="row mx-auto slider">
+              {% for i in catpost %}
+              <a href="{% url 'blogdesc' i.id i.slug %}">
+          <div class="card" style="height: 417px; margin-left: 10px; margin-right: 10px;">
+            <img src="{{i.image.url}}" alt="{{i.title}}" style="height: 314px;" >
+            <div class="card-body">
+              <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
+                  <br>
+                    <p class="card-text txt" style=" margin-top: -35px; font-weight: bolder; color: #000;">
+                      {{i.title}}
+                    </p>
             </div>
           </div>
-
+          </a>
+          {% endfor %}
+          </div>
+          </div>
         
 
 
-        <aside>
-
-            <h3 class="text-center">Popular Post</h3>
-            <div class="fakeimg">Image</div><br>
-            <div class="fakeimg">Image</div><br>
-            <div class="fakeimg">Image</div>
-
-        </aside>
+       
         <br>
         <br>
         <h2 style="color:black; text-transform: uppercase; font-weight: bold;">Comments</h2>
@@ -315,8 +312,57 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
       integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
       crossorigin="anonymous"></script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    
+  <script>
+ 
+    $('.slider').slick({
+         dots: true,
+         infinite: false,
+         speed: 300,
+         slidesToShow: 4,
+         slidesToScroll: 4,
+         responsive: [
+           {
+             breakpoint: 1024,
+             settings: {
+               slidesToShow: 3,
+               slidesToScroll: 3,
+               infinite: true,
+               dots: true
+             }
+           },
+           {
+             breakpoint: 600,
+             settings: {
+               slidesToShow: 2,
+               slidesToScroll: 2
+             }
+           },
+           {
+             breakpoint: 480,
+             settings: {
+               slidesToShow: 1,
+               slidesToScroll: 1
+             }
+           }
+           // You can unslick at a given breakpoint now by adding:
+           // settings: "unslick"
+           // instead of a settings object
+         ]
+       });
+       
+     </script>
 
 </body>
 

@@ -4,6 +4,14 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
+  <meta name="title" content="Rekmends">
+  <meta name="description"
+    content="Rekmends is the website you come to when buying something and you want a hassle-free quick guide to the product that would best fit your requirements.">
+  <meta name="keywords" content="Recommendation,recommend, recommended, Rekmends, top, best, marketing, buy, products">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
@@ -22,9 +30,15 @@
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=0fb6305e9adf5' async='true'></script>
+
+
+  
 
 
   {% load static %}
+
+  <link rel="icon" href="{% static 'logo.png' %}" type="image/gif" sizes="16x16">
 
   <title>Rekmends</title>
 
@@ -207,10 +221,10 @@
 
     @media only screen and (max-width: 425px) {
 
-      
-      .con{
-        width: 182px!important;
-        height: 154px!important;
+
+      .con {
+        width: 182px !important;
+        height: 154px !important;
       }
 
       #backgroundimage {
@@ -517,20 +531,31 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    .dropdown-item:hover {
-      background: rgba(140, 235, 241, 0.692);
-      color: #000;
+
+
+    .se-pre-con {
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background-color: white;
     }
   </style>
 
-  <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=0fb6305e9adf5' async='true'></script>
 
-
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 </head>
 
 <body>
+
+  <div class="se-pre-con">
+    <center>
+      <video src="{% static 'loader.mp4' %}" width="320" height="240" autoplay muted loop> </video>
+    </center>
+  </div>
+
 
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: transparent; height: 85px; ">
     <div class="container-fluid" style="background-color: transparent;">
@@ -601,6 +626,7 @@ padding-top: 9px; padding-bottom: 6px;">
       </div>
     </div>
   </nav>
+
 
 
   <div id="backgroundimage">
@@ -677,12 +703,11 @@ padding-top: 9px; padding-bottom: 6px;">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                
-                <p class="card-title txt" style=" font-weight: bolder; color: #000;"> {{p.title}} | {{p.category.name}}  </p>
-                <hr>
-                <p class="card-text">
-                  <small class="text-muted" style="color: black;">{{p.created_at}}</small>
+
+                <p class="card-title txt" style=" font-weight: bolder; color: #000;"> {{p.title}} | {{p.category.name}}
                 </p>
+                <hr>
+
                 <p class="card-text des" style="color: black;">
                   {% autoescape off %}
 
@@ -714,12 +739,11 @@ padding-top: 9px; padding-bottom: 6px;">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                
-                <p class="card-title txt" style="  font-weight: bolder; color: #000;">{{p.title}} | {{p.category.name}}</p>
-                <hr>
-                <p class="card-text">
-                  <small class="text-muted">{{p.created_at}}</small>
+
+                <p class="card-title txt" style="  font-weight: bolder; color: #000;">{{p.title}} | {{p.category.name}}
                 </p>
+                <hr>
+
                 <p class="card-text">
                   {% autoescape off %}
 
@@ -1007,7 +1031,8 @@ padding-top: 9px; padding-bottom: 6px;">
         <p>Everything sorted! Sounds good right? So that’s exactly what we have done here, put all your favourite
           products in the right categories to make your search easier. Go ahead and explore the best products sorted out
           just for you.</p>
-        <a href="{% url 'category' %}" class="btn"  style="background-color: #61c4f6; font-weight: bold; color: white;">Click Here</a>
+        <a href="{% url 'category' %}" class="btn"
+          style="background-color: #61c4f6; font-weight: bold; color: white;">Click Here</a>
       </div>
       <div class="column-33">
         <img src="{% static 'categories.png' %}" alt="">
@@ -1025,9 +1050,10 @@ padding-top: 9px; padding-bottom: 6px;">
         <h2 style="color:rgb(0, 0, 0); font-weight: bold; text-transform: uppercase;">Checkout Our Blogs</h2>
         <hr>
         <p>Here are blogs related to your favourite products containing the details,
-            reviews, recommendations and comparisons of the products you are looking for. These will guide you through
-            your way of choosing the right one and give you an insight of each enlisted product.</p>
-          <a href="{% url 'blog' %}"  class="btn" style="background-color: #f0b463; font-weight: bold; color: white;">Click Here</a>
+          reviews, recommendations and comparisons of the products you are looking for. These will guide you through
+          your way of choosing the right one and give you an insight of each enlisted product.</p>
+        <a href="{% url 'blog' %}" class="btn" style="background-color: #f0b463; font-weight: bold; color: white;">Click
+          Here</a>
       </div>
     </div>
   </div>
@@ -1040,10 +1066,11 @@ padding-top: 9px; padding-bottom: 6px;">
         <h2 style="color:rgb(0, 0, 0); font-weight: bold; text-transform: uppercase;">CONATCT US NOW</h2>
         <hr>
         <p>Got any doubts or suggestions or feedback? Feel free to contact us and talk directly to our team.</p>
-        <a href="{% url 'contact' %}" class="btn"  style="background-color: #61c4f6; font-weight: bold; color: white;">Click Here</a>
+        <a href="{% url 'contact' %}" class="btn"
+          style="background-color: #61c4f6; font-weight: bold; color: white;">Click Here</a>
       </div>
-      <div class="column-33" style="margin-top: -44px;">
-        <lottie-player class="con" src="https://assets8.lottiefiles.com/packages/lf20_IG1Hp6.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+      <div class="column-33">
+        <img src="{% static 'contact.png' %}" alt="">
       </div>
     </div>
   </div>
@@ -1053,8 +1080,7 @@ padding-top: 9px; padding-bottom: 6px;">
 
 
   <center>
-    <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_accg3lm5.json" background="transparent" speed="1"
-      style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+    <video src="{% static 'faq.mp4' %}" width="320" height="240" autoplay muted loop> </video>
 
     <h2>FAQ</h2>
   </center>
@@ -1134,6 +1160,19 @@ padding-top: 9px; padding-bottom: 6px;">
     crossorigin="anonymous"></script>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+
+  <script>
+
+
+    $(window).load(function () {
+      // Animate loader off screen
+      $(".se-pre-con").fadeOut(900);;
+    });
+  </script>
 
 
 

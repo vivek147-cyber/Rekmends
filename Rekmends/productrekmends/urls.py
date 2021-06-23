@@ -19,5 +19,7 @@ urlpatterns = [
     path('products/',views.products,name="products"),
     path('nav/',views.nav,name="nav"),
     path('footer/',views.footer,name="footer"),
+    path('subscribe/',views.subscribe,name="subscribe"),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

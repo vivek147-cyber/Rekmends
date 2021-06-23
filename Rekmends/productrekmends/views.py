@@ -8,9 +8,9 @@ from .forms import Reviewfrom
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Q
 from math import ceil
-from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.core.mail import send_mail ,EmailMultiAlternatives
 
-# Create your views here.
 
 
 def nav(request):
@@ -39,12 +39,13 @@ def footer(request):
 
         if not error_message:
             subscribe.save()
-            send_mail(
-                'Rekmends',
-                'Thankyou for Subscribing',
-                'from@example.com',
-                [email],
-                fail_silently=False,)
+            mail_subject = 'Please check'
+            message = render_to_string('subscribe.html')
+            from_email='from@example.com'
+            to_email = email
+            send_email = EmailMultiAlternatives(mail_subject, from_email, to=[to_email])
+            send_email.attach_alternative(message, "text/html")
+            send_email.send()
 
             return redirect('homepage')
         else:
@@ -81,12 +82,13 @@ def index(request):
 
         if not error_message:
             subscribe.save()
-            send_mail(
-                'Rekmends',
-                'Thankyou for Subscribing',
-                'from@example.com',
-                [email],
-                fail_silently=False,)
+            mail_subject = 'Please check'
+            message = render_to_string('subscribe.html')
+            from_email='from@example.com'
+            to_email = email
+            send_email = EmailMultiAlternatives(mail_subject, from_email, to=[to_email])
+            send_email.attach_alternative(message, "text/html")
+            send_email.send()
 
             return redirect('homepage')
         else:
@@ -178,9 +180,31 @@ def search(request):
     product = Product.objects.filter(Q(name__icontains=query) | Q(
         category__name__icontains=query) | Q(description__icontains=query))
 
+
+    paginator = Paginator(post, 3)
+    page = request.GET.get('page')
+
+    try:
+        blogs = paginator.get_page(page)
+    except PageNotAnInteger:
+        blogs = paginator.page(1)
+    except EmptyPage:
+        blogs = paginator.page(paginator.num_pages)
+
+    # products pagination
+    pag = Paginator(product, 3)
+    pg = request.GET.get('page')
+
+    try:
+        products = pag.get_page(pg)
+    except PageNotAnInteger:
+        products = pag.page(1)
+    except EmptyPage:
+        products = pag.page(pag.num_pages)
+
     params = {
-        'post': post,
-        'product': product,
+        'post': blogs,
+        'product': products,
         'catblog': catblog,
 
     }
@@ -217,6 +241,7 @@ def blogdesc(request, slug, id):
     catblog = categories.objects.all()
 
     blogdesc = Post.objects.filter(slug=slug, pk=id)
+    catpost = Post.objects.all().order_by('-category')
 
     blog = Post.objects.get(id=id)
     blog.read = blog.read + 1
@@ -230,6 +255,7 @@ def blogdesc(request, slug, id):
         'blogdesc': blogdesc[0],
         'reviews': reviews,
         'catblog': catblog,
+        'catpost':catpost,
         'p': p,
     }
 
@@ -277,3 +303,14 @@ def products(request):
     }
 
     return render(request, 'products.html', params)
+
+
+def subscribe(request):
+
+    p = Post.objects.all().order_by('-created_at')
+    
+    params={
+        'p':p,
+    }
+
+    return render(request,'subscribe.html',params)
