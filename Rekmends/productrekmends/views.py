@@ -3,7 +3,7 @@ import re
 from django import forms
 from django.db.models.fields import SlugField
 from django.shortcuts import redirect, render
-from .models import categories, Post, Review, Contact, Product, subscribeform
+from .models import categories, Post, Review, Contact, Product, subscribeform,coupon
 from .forms import Reviewfrom
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Q
@@ -26,7 +26,11 @@ def nav(request):
 
 def footer(request):
     if request.method == 'GET':
-        return render(request, 'footer.html')
+        catblog = categories.objects.all()[:4]
+        params={
+            'catblog':catblog,
+        }
+        return render(request, 'footer.html',params)
     else:
         if request.method == 'POST':
             email = request.POST['email']
@@ -39,7 +43,7 @@ def footer(request):
 
         if not error_message:
             subscribe.save()
-            mail_subject = 'Please check'
+            mail_subject = 'Thankyou for subscribing us!'
             message = render_to_string('subscribe.html')
             from_email='from@example.com'
             to_email = email
@@ -82,7 +86,7 @@ def index(request):
 
         if not error_message:
             subscribe.save()
-            mail_subject = 'Please check'
+            mail_subject = 'Thank you for Subscribing to our Newsletter'
             message = render_to_string('subscribe.html')
             from_email='from@example.com'
             to_email = email
@@ -98,7 +102,7 @@ def index(request):
 def contact(request):
 
     catblog = categories.objects.all()
-    if request.method == 'POST':
+    if request.method == 'POST' and 'email' in request.POST:
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
@@ -108,12 +112,29 @@ def contact(request):
                           message=message)
 
         contact.save()
-        send_mail(
-            'Rekmends',
-            'Thankyou for Subscribing',
-            'from@example.com',
-            [email],
-            fail_silently=False,)
+        mail_subject = 'Thankyou for Contacting us!'
+        message = render_to_string('consub.html')
+        from_email='from@example.com'
+        to_email = email
+        send_email = EmailMultiAlternatives(mail_subject, from_email, to=[to_email])
+        send_email.attach_alternative(message, "text/html")
+        send_email.send()
+    
+    if request.method == 'POST' and 'Email' in request.POST:
+            Email = request.POST['Email']
+            subscribe = subscribeform(email=Email)
+
+
+            subscribe.save()
+            mail_subject = 'Thank you for Subscribing to our Newsletter'
+            message = render_to_string('subscribe.html')
+            from_email='from@example.com'
+            to_email = Email
+            send_email = EmailMultiAlternatives(mail_subject, from_email, to=[to_email])
+            send_email.attach_alternative(message, "text/html")
+            send_email.send()
+    
+
 
     params = {
         'catblog': catblog,
@@ -124,6 +145,21 @@ def contact(request):
 
 def about(request):
     catblog = categories.objects.all()
+    
+    if request.method == 'POST' and 'Email' in request.POST:
+            Email = request.POST['Email']
+            subscribe = subscribeform(email=Email)
+
+
+            subscribe.save()
+            mail_subject = 'Thank you for Subscribing to our Newsletter'
+            message = render_to_string('subscribe.html')
+            from_email='from@example.com'
+            to_email = Email
+            send_email = EmailMultiAlternatives(mail_subject, from_email, to=[to_email])
+            send_email.attach_alternative(message, "text/html")
+            send_email.send()
+
     params = {
         'catblog': catblog,
     }
@@ -131,6 +167,7 @@ def about(request):
 
 
 def category(request):
+    
 
     catblog = categories.objects.all()
     categoryID = request.GET.get('category')
@@ -165,6 +202,20 @@ def category(request):
     except EmptyPage:
         products = pag.page(pag.num_pages)
 
+    if request.method == 'POST' and 'Email' in request.POST:
+            Email = request.POST['Email']
+            subscribe = subscribeform(email=Email)
+
+
+            subscribe.save()
+            mail_subject = 'Thank you for Subscribing to our Newsletter'
+            message = render_to_string('subscribe.html')
+            from_email='from@example.com'
+            to_email = Email
+            send_email = EmailMultiAlternatives(mail_subject, from_email, to=[to_email])
+            send_email.attach_alternative(message, "text/html")
+            send_email.send()
+
     params = {}
     params['prod'] = blogs
     params['p'] = products
@@ -175,10 +226,11 @@ def category(request):
 def search(request):
     catblog = categories.objects.all()
     query = request.GET.get('q')
-    post = Post.objects.filter(Q(title__icontains=query) | Q(
-        category__name__icontains=query) | Q(decription__icontains=query))
-    product = Product.objects.filter(Q(name__icontains=query) | Q(
-        category__name__icontains=query) | Q(description__icontains=query))
+    for word in query.split():
+     post = Post.objects.filter(Q(title__icontains=word) | Q(
+        category__name__icontains=word) | Q(decription__icontains=word))
+     product = Product.objects.filter(Q(name__icontains=word) | Q(
+        category__name__icontains=word) | Q(description__icontains=word))
 
 
     paginator = Paginator(post, 3)
@@ -201,6 +253,8 @@ def search(request):
         products = pag.page(1)
     except EmptyPage:
         products = pag.page(pag.num_pages)
+
+    
 
     params = {
         'post': blogs,
@@ -226,6 +280,21 @@ def blog(request):
         blogs = paginator.page(1)
     except EmptyPage:
         blogs = paginator.page(paginator.num_pages)
+    
+    
+    if request.method == 'POST' and 'Email' in request.POST:
+            Email = request.POST['Email']
+            subscribe = subscribeform(email=Email)
+
+
+            subscribe.save()
+            mail_subject = 'Thank you for Subscribing to our Newsletter'
+            message = render_to_string('subscribe.html')
+            from_email='from@example.com'
+            to_email = Email
+            send_email = EmailMultiAlternatives(mail_subject, from_email, to=[to_email])
+            send_email.attach_alternative(message, "text/html")
+            send_email.send()
 
     params = {
         'post': blogs,
@@ -248,8 +317,25 @@ def blogdesc(request, slug, id):
     blog.save()
 
     p = Post.objects.all().order_by('-read')
+    l=Post.objects.all().order_by('-created_at')
 
     reviews = Review.objects.filter(post_id=id).order_by('-id')
+
+
+    
+    if request.method == 'POST' and 'Email' in request.POST:
+            Email = request.POST['Email']
+            subscribe = subscribeform(email=Email)
+
+
+            subscribe.save()
+            mail_subject = 'Thank you for Subscribing to our Newsletter'
+            message = render_to_string('subscribe.html')
+            from_email='from@example.com'
+            to_email = Email
+            send_email = EmailMultiAlternatives(mail_subject, from_email, to=[to_email])
+            send_email.attach_alternative(message, "text/html")
+            send_email.send()
 
     params = {
         'blogdesc': blogdesc[0],
@@ -257,6 +343,7 @@ def blogdesc(request, slug, id):
         'catblog': catblog,
         'catpost':catpost,
         'p': p,
+        'l':l,
     }
 
     return render(request, 'blogdesc.html', params)
@@ -283,7 +370,18 @@ def submit_review(request, post_id):
 
 
 def products(request):
-    p = Product.objects.all().order_by('-created_on')
+    c=coupon.objects.all()
+    catblog = categories.objects.all()
+    categoryID = request.GET.get('category')
+    # posts=Post.objects.all()
+
+    if categoryID:
+        prod = Post.get_all_product_by_category_id(categoryID)
+        p = Product.get_all_product_by_category_name(categoryID)
+    else:
+        prod = Post.objects.all().order_by('-created_at')
+        p = Product.objects.all().order_by('-created_on')
+    
     budget_friendly = Product.objects.all().order_by('-newprice')
 
     paginator = Paginator(p, 3)
@@ -296,9 +394,27 @@ def products(request):
     except EmptyPage:
         pro = paginator.page(paginator.num_pages)
 
+    
+    
+    if request.method == 'POST' and 'Email' in request.POST:
+            Email = request.POST['Email']
+            subscribe = subscribeform(email=Email)
+
+
+            subscribe.save()
+            mail_subject = 'Thank you for Subscribing to our Newsletter'
+            message = render_to_string('subscribe.html')
+            from_email='from@example.com'
+            to_email = Email
+            send_email = EmailMultiAlternatives(mail_subject, from_email, to=[to_email])
+            send_email.attach_alternative(message, "text/html")
+            send_email.send()
+
     params = {
         'p': pro,
         'budget_friendly': budget_friendly,
+        'catblog':catblog,
+        'c':c
 
     }
 
@@ -307,10 +423,11 @@ def products(request):
 
 def subscribe(request):
 
-    p = Post.objects.all().order_by('-created_at')
-    
-    params={
-        'p':p,
-    }
+  
+    return render(request,'subscribe.html')
 
-    return render(request,'subscribe.html',params)
+def consub(request):
+    return render(request,'consub.html')
+
+def privacy(request):
+  return render(request,'privacy.html')

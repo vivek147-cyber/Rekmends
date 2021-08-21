@@ -23,16 +23,16 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
   <!-- MDB -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet" />
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
+  
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=0fb6305e9adf5' async='true'></script>
-
-  <script data-ad-client="ca-pub-9396822445831523" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+ 
+  
 
 
   
@@ -40,7 +40,7 @@
 
   {% load static %}
 
-  <link rel="icon" href="{% static 'logo.png' %}" type="image/gif" sizes="16x16">
+  <link rel="icon" href="{% static 'f.png' %}" type="image/gif" sizes="16x16">
 
   <title>Rekmends</title>
 
@@ -62,12 +62,54 @@
       text-decoration: none;
       white-space: nowrap;
     }
+    
+    .blog {
+      border-radius: 10px;
+      box-shadow: 0px 1px 13px 4px #d6d6d6, 20px -20px 30px #ffffff;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
 
+    .card:hover{
+      border-radius: 10px;
+      box-shadow: 0px 1px 4px 0px #c4c1c1, 0px 0px 5px 4px #c9c6c6c7;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+
+    .col-md-3 {
+      display: inline-block;
+      margin-left: -4px;
+    }
+
+    .col-md-3 img {
+
+      width: 227px;
+      height: 242px;
+    }
+
+
+.blog:hover{
+     box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
 
 
     @media (max-width: 994px) {
 
-      .navbar {
+      .search{
+        margin-top: -286px!important;
+      }
+
+      .ic{
+        margin-top: -286px!important;
+      }
+
+      .home{
+        margin-top: 38px;
+      }
+
+       .navbar {
         height: 91px !important;
 
         background: white!important;
@@ -79,7 +121,13 @@
         background: white!important;
       }
 
+      .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+        color: #000!important;
+      }
 
+      .dropdown-toggle{
+        color: rgb(0, 0, 0)!important;
+      }
     }
 
     .heading {
@@ -143,7 +191,7 @@
       }
 
       .pic {
-        height: 206px !important;
+        height: 175px !important;
       }
 
 
@@ -270,6 +318,10 @@
 
     @media only screen and (max-width: 767px) {
 
+     
+    
+
+
 
       .heading {
         margin-bottom: 5px !important;
@@ -286,7 +338,7 @@
       }
 
       .c66 {
-        margin-top: 513px !important;
+        margin-top: 528px!important;
         max-width: 17rem !important;
         margin-left: -277px !important;
       }
@@ -299,6 +351,10 @@
         writing-mode: initial;
         transform: rotate(0);
         margin-left: 22px !important;
+      }
+      
+      .block{
+          display:none;
       }
 
       .c11 {
@@ -400,22 +456,6 @@
       padding: 20px;
     }
 
-    .large-font {
-      font-size: 48px;
-    }
-
-    .xlarge-font {
-      font-size: 64px
-    }
-
-    .button {
-      border: none;
-      color: white;
-      padding: 14px 28px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: #04AA6D;
-    }
 
     img {
       display: block;
@@ -545,15 +585,7 @@
 
 
 
-    .se-pre-con {
-      position: fixed;
-      left: 0px;
-      top: 0px;
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      background-color: white;
-    }
+    
   </style>
 
 
@@ -562,11 +594,7 @@
 
 <body>
 
-  <div class="se-pre-con">
-    <center>
-      <video src="{% static 'loader.mp4' %}" width="320" height="240" autoplay muted loop> </video>
-    </center>
-  </div>
+  
 
 
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: transparent; height: 85px; ">
@@ -581,12 +609,12 @@
         data-target="#navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" style=" padding-right: 41px; font-weight: bold; color: white;
+            <a class="nav-link active home" aria-current="page" href="#" style=" padding-right: 41px; font-weight: bold; color: white;
            ">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}" style=" padding-right: 41px; font-weight: bold;  color: white;
-          ">About us</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'about' %}" style=" padding-right: 41px; font-weight: bold; color: white;
+            ">About us</a>
           </li>
           <!--Dropdown primary-->
           <div class="dropdown" style="padding-right: 41px;
@@ -619,13 +647,13 @@ padding-top: 9px; padding-bottom: 6px;">
           </li>
         </ul>
         <form class="d-flex" method="GET" action="{% url 'search' %}">
-          <input name="q" type="search" class="form-control me-2" placeholder="Search" aria-label="Search" required
+          <input name="q" type="search" class="search form-control me-2" placeholder="Search" aria-label="Search" required
             style="height: 33px;
             margin-top: 13px;
             box-shadow: 0px 0px 10px 0px #dbd7d7a1;
             border-radius: 17px;
             border: 2px solid white;">
-          <button style="height: 34px;
+          <button  class="ic" style="height: 34px;
           margin-top: 12px;
           font-size: 21px;
           border-radius: 23px;
@@ -665,7 +693,7 @@ padding-top: 9px; padding-bottom: 6px;">
 
   <section class="trend container-sm">
 
-    <div class="heading ">
+   <div class="heading ">
       <h2 style="font-weight: bold;">TRENDSETTER
         <div class="line">
 
@@ -690,7 +718,7 @@ padding-top: 9px; padding-bottom: 6px;">
     <div class="contain trend">
       <a href="{% url 'blogdesc' p.id p.slug %}">
         <div class="card mb-3 c11" style="width: 18rem; margin-left: 45px; max-height: 271px;">
-          <img src="{{p.image.url}}" class="card-img-top" alt="..." style="height: 176px;" />
+          <img src="{{p.image.url}}" class="card-img-top" alt="{{p.title}}" style="height: 176px;" />
           <div class="card-body">
             <p class="card-text txt" style=" margin-top: -8px;">{{p.category.name}}</p>
             <br>
@@ -710,22 +738,28 @@ padding-top: 9px; padding-bottom: 6px;">
         <div class="card mb-3 c22" style="max-width: 540px; margin-left: 22px; height: 270px;">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="{{p.image.url}}" alt="..." class="img-fluid pic" style="height:270px; width: 280px;" />
+              <img src="{{p.image.url}}" alt="{{p.title}}" class="img-fluid pic" style="height:270px; width: 280px;" />
 
             </div>
             <div class="col-md-8">
               <div class="card-body">
+                   <p class="card-text txt" style=" margin-top: -8px;">{{p.category.name}}</p>
+            <br>
 
-                <p class="card-title txt" style=" font-weight: bolder; color: #000;"> {{p.title}} | {{p.category.name}}
+                <p class="card-title txt" style="  margin-top: -35px; font-weight: bolder; color: #000;"> {{p.title}} 
                 </p>
-                <hr>
+               <div class="block">
 
-                <p class="card-text des" style="color: black;">
-                  {% autoescape off %}
+                  <hr>
+  
+                  <p class="card-text des" style="color: black;">
+                    {% autoescape off %}
+  
+                    {{p.decription|slice:":85"}}......
+                    {% endautoescape %}
+                  </p>
+                </div>
 
-                  {{p.decription|slice:":85"}}......
-                  {% endautoescape %}
-                </p>
 
               </div>
             </div>
@@ -743,25 +777,29 @@ padding-top: 9px; padding-bottom: 6px;">
     <div class="bigcard" style="margin-left: 217px;">
       {% for p in post|slice:"2:3" %}
       <a href="{% url 'blogdesc' p.id p.slug %}">
-        <div class="card mb-3 c33" style="    max-width: 854px;
+        <div class="card mb-3 c33" style="max-width: 854px;
         max-height: 224px;">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="{{p.image.url}}" alt="..." class="img-fluid" style="max-height:224px; width: 280px;" />
+              <img src="{{p.image.url}}" alt="{{p.title}}" class="img-fluid" style="max-height:224px; width: 280px;" />
             </div>
             <div class="col-md-8">
               <div class="card-body">
-
-                <p class="card-title txt" style="  font-weight: bolder; color: #000;">{{p.title}} | {{p.category.name}}
+                <p class="card-text txt" style=" margin-top: -8px;">{{p.category.name}}</p>
+            <br>
+                <p class="card-title txt" style="  margin-top: -35px; font-weight: bolder; color: #000;">{{p.title}} 
                 </p>
-                <hr>
+                <div class="block">
 
-                <p class="card-text">
-                  {% autoescape off %}
-
-                  {{p.decription|slice:":75"}}......
-                  {% endautoescape %}
-                </p>
+                  <hr>
+  
+                  <p class="card-text des" style="color: black;">
+                    {% autoescape off %}
+  
+                    {{p.decription|slice:":75"}}......
+                    {% endautoescape %}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -779,33 +817,38 @@ padding-top: 9px; padding-bottom: 6px;">
   <div class="container ">
     <h2 style="font-weight: bold; ">BEST DEALS</h2>
     <hr>
-    <div class="row mx-auto slider">
-      {% for i in products %}
-      <div class="card " style="width: 18rem;">
-        <img class="card-img-top" src="{{i.image.url}}" alt="Card image cap">
-        <div class="card-body">
-          <small style="border: 2px solid white;
-            background-color: #80808061;
-            color: black;
-            border-radius: 11px;
-            font-size: 10px;
-            padding-right: 6px;
-            padding-left: 6px;">{{i.category}}</small>
-
-          </span>
-          <h5 class="card-title">{{i.name}}</h5>
-          <p class="card-text">{{i.description}}</p>
-          <div class="product-price">₹{{i.newprice}}<small>₹{{i.oldprice}}</small></div>
-          <a href="{{i.product_link}}" target="_blank" class="btn "
-            style="background-color: #61c4f6; font-weight: bold; color: white;">buy now</a>
-        </div>
+    <div id='products' class="col-lg-9 mx-auto">
+      <div class="row mx-auto slider">
+  
+        {% for i in products %}
+        <div class="card blog mx-auto mb-3" id="{{i.id}}" style="width: 18rem;">
+          <img src='{{i.image.url}}' class=" mg card-img-top" alt="{{i.name}}">
+          <div class="card-body">
+            <span class="product-catagory">
+              <small style="border: 2px solid grey;
+              background-color: #80808061;
+              color: black;
+              border-radius: 11px;
+              font-size: 10px;
+              padding-right: 6px;
+              padding-left: 6px;">{{i.category.name}}</small>
+  
+            </span>
+  
+           
+           <h5 class="card-title">{{i.name}}</h5>
+           <p class="card-text">{{i.description}}</p>
+           <div class="product-price">₹{{i.newprice}}<small>₹{{i.oldprice}}</small></div>
+           <a href="{{i.product_link}}" style="background-color: #61c4f6; font-weight: bold; color: white;" target="_blank" class="btn">buy now</a>
+           </div>
+           </div>
+        {% endfor %}
+       
       </div>
-      {% endfor %}
-
-
-
+  
+  
+      </div>
     </div>
-  </div>
 
   <center>
 
@@ -817,9 +860,7 @@ padding-top: 9px; padding-bottom: 6px;">
 
   <br>
   <br>
-  <br>
-  <br>
-
+  
 
   <section class="trend container-sm">
     <div class="heading" style="margin-bottom: 335px;">
@@ -848,10 +889,10 @@ padding-top: 9px; padding-bottom: 6px;">
       {% for i in latestpost|slice:":1" %}
       <a href="{% url 'blogdesc' i.id i.slug %}">
         <div class="card mb-3 c11 c44" style="width: 18rem; margin-left: 45px; max-height: 271px;">
-          <img src="{{i.image.url}}" class="card-img-top" alt="..." style="max-height:193px " />
+          <img src="{{i.image.url}}" class="card-img-top" alt=" {{i.title}}" style="max-height:193px " />
           <div class="card-body">
             <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
-            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder;">
+            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder; color: black;">
               {{i.title}}
             </p>
           </div>
@@ -862,10 +903,10 @@ padding-top: 9px; padding-bottom: 6px;">
       {% for i in latestpost|slice:"1:2" %}
       <a href="{% url 'blogdesc' i.id i.slug %}">
         <div class="card mb-3 c11 c55" style="width: 18rem; margin-left: 45px; max-height: 271px;">
-          <img src="{{i.image.url}}" class="card-img-top " alt="..." style="max-height:193px " />
+          <img src="{{i.image.url}}" class="card-img-top " alt=" {{i.title}}" style="max-height:193px " />
           <div class="card-body">
             <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
-            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder;">
+            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder; color: black;">
               {{i.title}}
             </p>
           </div>
@@ -877,10 +918,10 @@ padding-top: 9px; padding-bottom: 6px;">
     {% for i in latestpost|slice:"2:3" %}
     <a href="{% url 'blogdesc' i.id i.slug %}">
       <div class="card c66" style="width: 18rem; margin-left: 15px; max-height: 537px;">
-        <img src="{{i.image.url}}" class="card-img-top" alt="..." />
+        <img src="{{i.image.url}}" class="card-img-top" alt=" {{i.title}}" />
         <div class="card-body">
           <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
-          <p class="card-text txt66" style=" margin-top: -16px; font-weight: bolder;">
+          <p class="card-text txt66" style=" margin-top: -16px; font-weight: bolder; color: black;">
             {{i.title}}
           </p>
           <hr>
@@ -907,10 +948,10 @@ padding-top: 9px; padding-bottom: 6px;">
       {% for i in latestpost|slice:"3:4" %}
       <a href="{% url 'blogdesc' i.id i.slug %}">
         <div class="card mb-3 c11 c77" style="width: 18rem; margin-left: 15px; max-height: 271px;">
-          <img src="{{i.image.url}}" class="card-img-top" alt="..." style="max-height:193px " />
+          <img src="{{i.image.url}}" class="card-img-top" alt=" {{i.title}}" style="max-height:193px " />
           <div class="card-body">
             <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
-            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder;">
+            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder; color: black;">
               {{i.title}}
             </p>
           </div>
@@ -921,10 +962,10 @@ padding-top: 9px; padding-bottom: 6px;">
       {% for i in latestpost|slice:"4:5" %}
       <a href="{% url 'blogdesc' i.id i.slug %}">
         <div class="card mb-3 c11 c88" style="width: 18rem; margin-left: 15px; max-height: 271px;">
-          <img src="{{i.image.url}}" class="card-img-top" alt="..." style="max-height:161px " />
+          <img src="{{i.image.url}}" class="card-img-top" alt=" {{i.title}}" style="max-height:161px " />
           <div class="card-body">
             <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
-            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder;">
+            <p class="card-text txt" style=" margin-top: -16px; font-weight: bolder; color: black;">
               {{i.title}}
             </p>
           </div>
@@ -950,12 +991,12 @@ padding-top: 9px; padding-bottom: 6px;">
 
 
 
-  <section class="newsletter">
+  <section class="newsletter" id="subscribe">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <div class="content">
-            <h2>SUBSCRIBE TO OUR NEWSLETTER</h2>
+            <h1>SUBSCRIBE TO OUR NEWSLETTER</h1>
             <form method="POST">
               {% csrf_token %}
               {% if error%}
@@ -984,51 +1025,18 @@ padding-top: 9px; padding-bottom: 6px;">
 
 
   <section class="trend container-sm">
-    <div class="heading" style="margin-bottom: 20px;">
-      <h2 style="font-weight: bold;">
-        <div class="line">
+    <div class="container" style="padding-top: 0px; padding-bottom: 0px;">
+ <center>
 
-
-        </div>
-
-
-      </h2>
-
+   <a href="https://www.amazon.in/dp/B077S5CVBQ/?ref=assoc_tag_sept19?actioncode=AINOTH066082819002X&tag=rekmendsvyn-21" target="_blank"><img src="{% static 'a2.jpeg' %}" alt=""></a>
+ </center>
+  
     </div>
-
-    <div class="contain latest">
-
-      <div class="bigcard" style="margin-left: 139px;">
-
-        <div class="card mb-3 c33" style="    max-width: 854px;
-        max-height: 224px;">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg" alt="..." class="img-fluid"
-                style="max-height:224px; width: 280px;" />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural lead-in to
-                  additional content. This content is a little bit longer.
-                </p>
-                <p class="card-text">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
 
   </section>
 
   <br>
-  <br>
+  
 
 
 
@@ -1044,10 +1052,10 @@ padding-top: 9px; padding-bottom: 6px;">
           products in the right categories to make your search easier. Go ahead and explore the best products sorted out
           just for you.</p>
         <a href="{% url 'category' %}" class="btn"
-          style="background-color: #61c4f6; font-weight: bold; color: white;">Click Here</a>
+          style="background-color: #61c4f6; font-weight: bold; color: white;">Categories</a>
       </div>
       <div class="column-33">
-        <img src="{% static 'categories.png' %}" alt="">
+        <img src="{% static 'categories.png' %}" alt="category">
       </div>
     </div>
   </div>
@@ -1056,7 +1064,7 @@ padding-top: 9px; padding-bottom: 6px;">
   <div class="container" style="background-color:#f1f1f1">
     <div class="row">
       <div class="column-33">
-        <img src="{% static 'BLOG.png' %}" alt="">
+        <img src="{% static 'BLOG.png' %}" alt="blogs">
       </div>
       <div class="column-66">
         <h2 style="color:rgb(0, 0, 0); font-weight: bold; text-transform: uppercase;">Checkout Our Blogs</h2>
@@ -1064,8 +1072,7 @@ padding-top: 9px; padding-bottom: 6px;">
         <p>Here are blogs related to your favourite products containing the details,
           reviews, recommendations and comparisons of the products you are looking for. These will guide you through
           your way of choosing the right one and give you an insight of each enlisted product.</p>
-        <a href="{% url 'blog' %}" class="btn" style="background-color: #f0b463; font-weight: bold; color: white;">Click
-          Here</a>
+        <a href="{% url 'blog' %}" class="btn" style="background-color: #f0b463; font-weight: bold; color: white;">Blogs</a>
       </div>
     </div>
   </div>
@@ -1075,14 +1082,13 @@ padding-top: 9px; padding-bottom: 6px;">
     <div class="row">
       <div class="column-66">
         <h2 style="font-weight: bold; text-transform: uppercase;">ANY QUERIES?</h2>
-        <h2 style="color:rgb(0, 0, 0); font-weight: bold; text-transform: uppercase;">CONATCT US NOW</h2>
         <hr>
         <p>Got any doubts or suggestions or feedback? Feel free to contact us and talk directly to our team.</p>
         <a href="{% url 'contact' %}" class="btn"
-          style="background-color: #61c4f6; font-weight: bold; color: white;">Click Here</a>
+          style="background-color: #61c4f6; font-weight: bold; color: white;">Contact Us</a>
       </div>
       <div class="column-33">
-        <img src="{% static 'contact.png' %}" alt="">
+        <img src="{% static 'contact.png' %}" alt="contact us">
       </div>
     </div>
   </div>
@@ -1094,7 +1100,7 @@ padding-top: 9px; padding-bottom: 6px;">
   <center>
     <video src="{% static 'faq.mp4' %}" width="320" height="240" autoplay muted loop> </video>
 
-    <h2>FAQ</h2>
+    <h2>FAQ's</h2>
   </center>
 
 
@@ -1103,13 +1109,13 @@ padding-top: 9px; padding-bottom: 6px;">
       <h2 class="accordion-header" id="flush-headingOne">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-          Accordion Item #1
+          What is our role?
         </button>
       </h2>
       <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
         data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-          <code>.accordion-flush</code> class. This is the first item's accordion body.
+        <div class="accordion-body">We have partnered with various E-Commerce brands, acting as a medium between them
+          and customers looking for the best products in their budget.
         </div>
       </div>
     </div>
@@ -1117,14 +1123,14 @@ padding-top: 9px; padding-bottom: 6px;">
       <h2 class="accordion-header" id="flush-headingTwo">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-          Accordion Item #2
+          How we choose?
         </button>
       </h2>
       <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
         data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-          <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled
-          with some actual content.
+        <div class="accordion-body">We have a team specifically assigned to hand-pick budget products and personally use
+          them, if that isn’t enough we look for reviews and after a series of marking, we end up with the best product
+          in the category at that price range. So don’t worry, we’ve done the research to REKMEND, THE BEST FOR YOU.
         </div>
       </div>
     </div>
@@ -1132,20 +1138,54 @@ padding-top: 9px; padding-bottom: 6px;">
       <h2 class="accordion-header" id="flush-headingThree">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-          Accordion Item #3
+          What if the product purchased is faulty?
         </button>
       </h2>
       <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
         data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-          <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening
-          here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more
-          representative of how this would look in a real-world application.
+        <div class="accordion-body">Being an affiliate member, we are not responsible for any product sold here, but we
+          assure that the all products are from trusted brands and you can contact them anytime.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingfour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
+          How do I sign up to be updated about the best products?
+        </button>
+      </h2>
+      <div id="flush-collapsefour" class="accordion-collapse collapse" aria-labelledby="flush-headingfour"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">You can <a href="#subscribe">click here to subscribe to our newsletter to get notified about our new
+          releases on the best products in different categories. Relax, we don’t spam mails.</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingfive">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
+          How to avail special offers?
+        </button>
+      </h2>
+      <div id="flush-collapsefive" class="accordion-collapse collapse" aria-labelledby="flush-headingfive"
+        data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">- Follow us on our social media handles to avail the latest offers.
+          <p>
+            <a href="https://www.instagram.com/rekmends/"><i class="fab fa-instagram white-text"> </i> Instagram </a>
+           </p>
         </div>
       </div>
     </div>
   </div>
 
+
+  <br>
+  <br>
+  <br>
+  <br>
 
 
 
@@ -1160,12 +1200,11 @@ padding-top: 9px; padding-bottom: 6px;">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
     integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
     integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
@@ -1173,18 +1212,7 @@ padding-top: 9px; padding-bottom: 6px;">
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-
-
-  <script>
-
-
-    $(window).load(function () {
-      // Animate loader off screen
-      $(".se-pre-con").fadeOut(900);;
-    });
-  </script>
+  
 
 
 

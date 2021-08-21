@@ -4,6 +4,15 @@ from .import views
 from django.conf.urls.static import static
 
 from django.conf import settings
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import PostSitemap, StaticSitemap 
+
+
+
+sitemaps = {
+    'Post':PostSitemap,
+    'static':StaticSitemap #add StaticSitemap to the dictionary
+}
 
 
 urlpatterns = [
@@ -20,6 +29,10 @@ urlpatterns = [
     path('nav/',views.nav,name="nav"),
     path('footer/',views.footer,name="footer"),
     path('subscribe/',views.subscribe,name="subscribe"),
+    path('consub/',views.consub,name="consub"),
+    path('privacy/',views.privacy,name="privacy"),
+    path('sitemap.xml/', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

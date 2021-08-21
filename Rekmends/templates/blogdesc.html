@@ -1,33 +1,42 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
-    
+
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="{{blogdesc.title}}">
+    <meta name="description" content="{% autoescape off %}{{blogdesc.decription|slice:":85"}}{% endautoescape %}">
+    <meta name="keywords"
+        content="Recommendation,recommend, recommended, Rekmends, top, best, marketing, buy, products ,{{blogdesc.category.name}}">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-  <!-- Google Fonts -->
-  
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
 
-  <!-- MDB -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet" />
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-  
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=60cb11fbed0412001c7f52d8&product=sticky-share-buttons' async='async'></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type='text/javascript'
+        src='https://platform-api.sharethis.com/js/sharethis.js#property=60cb11fbed0412001c7f52d8&product=sticky-share-buttons'
+        async='async'></script>
     <title>{{blogdesc.title}}</title>
-    {% load static %}
 
     <style>
         html {
@@ -63,32 +72,33 @@
 
         aside {
             width: 30%;
-            height: 1649px;
+            height: 2649px;
             padding-left: 15px;
             margin-left: 15px;
             float: right;
             font-style: italic;
-           
+            background: #d3dfe640;
+
         }
 
         #st-1.st-left {
-    left: 1471px;
-    top: 136px;
-}
+            left: 1471px;
+            top: 136px;
+        }
 
-.slick-prev:before,
-    .slick-next:before {
-      font-family: 'slick';
-      font-size: 20px;
-      line-height: 1;
-      opacity: .75;
-      color: black;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+        .slick-prev:before,
+        .slick-next:before {
+            font-family: 'slick';
+            font-size: 20px;
+            line-height: 1;
+            opacity: .75;
+            color: black;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
     </style>
 
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  
 
 </head>
 
@@ -96,134 +106,185 @@
 <body>
 
 
-    
+
     {% include 'nav.html' %}
-    
+
     <div id="backgroundimage">
-      
+
     </div>
 
     <br>
-     
-
-    
-   
-      
-      
-      <br>
 
 
 
 
-      
+
+
+    <br>
+
+
+
+
+
     <div class="container">
 
-       
+
         <h2 style="color:black; text-transform: uppercase; font-weight: bold;">{{blogdesc.title}}</h2>
         <hr>
         <span>{{blogdesc.category.name}} || {{blogdesc.created_at}}</span>
         <br>
         <br>
-     <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons" ></div><!-- ShareThis END -->
+        <!-- ShareThis BEGIN -->
+        <div class="sharethis-inline-share-buttons">
+        </div><!-- ShareThis END -->
 
-     <br>
-     <lottie-player src="https://assets4.lottiefiles.com/private_files/lf30_txmmovoe.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+        
 
-  
-     <a href="#comment" class="btn btn-primary" style="border-radius: 25px;">Comment Now  <i class="fas fa-comments"></i></a>
-       
+        <br>
 
-      <br>
+
+        
+
 
         <aside>
 
             <h3 class="text-center" style="font-weight: bold;">Popular Post</h3>
             <hr>
-         
+
             {% for i in p|slice:":3" %}
             <div class="fakeimg">
                 <div class="row">
                     <img src="{{i.image.url}}" alt="popular post" style="width: 373px;
-                    height: 161px;
+                    height: 334px;
                 ">
-                <br>
-                    <a href="{% url 'blogdesc' i.id i.slug %}"><p>{{i.title}}</p></a>
+                    <br>
+                    <a href="{% url 'blogdesc' i.id i.slug %}">
+                        <p>{{i.title}}</p>
+                    </a>
                 </div>
 
 
             </div>
             {% endfor %}
-           
-      <br>
-
-    <br>
-    <br>
-    <br>
-     
 
 
-        <h3 class="text-center" style="font-weight: bold;">Popular Post</h3>
-        <hr>
-         
-            {% for i in p|slice:":3" %}
+
+            <br>
+
+            <br>
+            <br>
+            <br>
+
+
+
+            <h3 class="text-center" style="font-weight: bold;">Latest Post</h3>
+            <hr>
+
+            {% for i in l|slice:":3" %}
             <div class="fakeimg">
                 <div class="row">
                     <img src="{{i.image.url}}" alt="popular post" style="width: 373px;
-                    height: 161px;
+                    height: 344px;
                 ">
-                <br>
-                    <a href="{% url 'blogdesc' i.id i.slug %}"><p>{{i.title}}</p></a>
+                    <br>
+                    <a href="{% url 'blogdesc' i.id i.slug %}">
+                        <p>{{i.title}}</p>
+                    </a>
                 </div>
 
 
             </div>
             {% endfor %}
+
+            
+
+
 
         </aside>
 
 
 
-     
+
 
         <div class="container-fixed">
+         
+
+           
             {% autoescape off %}
             <p style="color:black;">
-               {{ blogdesc.decription|safe}}
+                {{ blogdesc.decription|safe}}
             </p>
-            
+
             {% endautoescape %}
-           
-          
+       
+
+
+        </div>
+        <br>
+
+
+        <div class="container ">
+
+            <h2>MORE BLOGS</h2>
+            <hr>
+
+            <div class="row mx-auto slider">
+                {% for i in catpost %}
+                <a href="{% url 'blogdesc' i.id i.slug %}">
+                    <div class="card" style="height: 417px; margin-left: 10px; margin-right: 10px;">
+                        <img src="{{i.image.url}}" alt="{{i.title}}" style="height: 314px;">
+                        <div class="card-body">
+                            <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
+                            <br>
+                            <p class="card-text txt" style=" margin-top: -35px; font-weight: bolder; color: #000;">
+                                {{i.title}}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
         </div>
 
-       
-        <div class="container ">
-         
-            <div class="row mx-auto slider">
-              {% for i in catpost %}
-              <a href="{% url 'blogdesc' i.id i.slug %}">
-          <div class="card" style="height: 417px; margin-left: 10px; margin-right: 10px;">
-            <img src="{{i.image.url}}" alt="{{i.title}}" style="height: 314px;" >
-            <div class="card-body">
-              <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
-                  <br>
-                    <p class="card-text txt" style=" margin-top: -35px; font-weight: bolder; color: #000;">
-                      {{i.title}}
-                    </p>
-            </div>
-          </div>
-          </a>
-          {% endfor %}
-          </div>
-          </div>
-        
-
-
-       
         <br>
         <br>
+
+
+
+
         <h2 style="color:black; text-transform: uppercase; font-weight: bold;">Comments</h2>
         <hr>
+
+
+             
+        <aside style="height: 334px;">
+
+            <h3 class="text-center" style="font-weight: bold;">Follow Us</h3>
+            <hr>
+
+            <p>
+                <a href="mailto:rekmends@gmail.com"><i class="fas fa-envelope mr-3"></i> rekmends@gmail.com </a>
+              </p>
+              <p>
+                <a href="mailto:support@rekmends.com"><i class="fas fa-envelope mr-3"></i> support@rekmends.com </a>
+              </p>
+               <!--Instagram-->
+               <p>
+                <a href="https://www.instagram.com/rekmends/"><i class="fab fa-instagram black-text"> </i> Rekmends</a>
+               </p>
+
+            
+               <br>
+               <br>
+               <br>
+
+
+
+            
+        </aside>
+
+        <lottie-player src="https://assets4.lottiefiles.com/private_files/lf30_txmmovoe.json" background="transparent"
+            speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
 
 
         <div class="card" id="comment" style="max-width:404px;">
@@ -240,26 +301,29 @@
 
                         <!-- Message input -->
                         <div class="form-outline mb-2">
-                            <input class="form-control" id="form4Example3" name="name" rows="4" placeholder="Name" required></input>
+                            <input class="form-control" id="form4Example3" name="name" rows="4" placeholder="Name"
+                                required></input>
                             <label class="form-label" for="form4Example3"></label>
                         </div>
                         <div class="form-row">
 
                             <div class="form-outline mb-2">
-                                <input type="email" class="form-control" id="form4Example3" name="email" rows="4" placeholder="Email" required></input>
+                                <input type="email" class="form-control" id="form4Example3" name="email" rows="4"
+                                    placeholder="Email" required></input>
                                 <label class="form-label" for="form4Example3"></label>
                             </div>
                         </div> <!-- form-row.// -->
                         <div class="form-row">
 
                             <div class="form-outline mb-2">
-                                <textarea type="message" class="form-control" id="form4Example3" name="message" rows="4" placeholder="Message" required></textarea>
+                                <textarea type="message" class="form-control" id="form4Example3" name="message" rows="4"
+                                    placeholder="Message" required></textarea>
                                 <label class="form-label" for="form4Example3"></label>
                             </div>
                         </div> <!-- form-row.// -->
                     </div>
                     <div class="form-group">
-                        <input  type="submit" value="Submit Review" class="btn btn-primary"></input>
+                        <input type="submit" value="Submit Review" class="btn btn-primary"></input>
                     </div>
                 </form>
 
@@ -270,16 +334,17 @@
 
 
         {% for i in reviews %}
-        <div class="card"  style="max-width:708px; margin-top: 47px;">
+        <div class="card" style="max-width:708px; margin-top: 47px;">
             <article class="box mb-4 mx-4">
                 <div class="icontext w-100" style="margin-top: 23px;">
 
                     <div class="text">
                         <span class="date text-muted float-md-right"></span>
-                        <span class="mb-1"><i class="fas fa-user-circle"></i> {{i.name}} || {{i.post}}</span>
+                        <span class="mb-1" style="font-weight: bold;"><i class="fas fa-user-circle"></i> {{i.name}} || {{i.post}}</span>
 
                     </div>
                 </div> <!-- icontext.// -->
+                <hr>
                 <div class="mt-3">
                     <p>
                         {{i.message}}
@@ -292,77 +357,206 @@
 
     </div>
 
-  
+
 
     <br>
 
 
 
 
-     {% include 'footer.html' %}
-    <!-- Optional JavaScript; choose one of the two! -->
-  
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     
-  
-  
-    
-  
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
-      integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
-      crossorigin="anonymous"></script>
+<footer class="page-footer font-small unique-color-dark">
+
+    <div style="background-color: #61c4f6;">
+      <div class="container" style="padding: 12px;">
+
+        <!-- Grid row-->
+        <div class="row py-2 d-flex align-items-center">
+
+          <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+            <h6 class="mb-0">Get connected with us on social networks!</h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+
+
+            <!-- Google +-->
+            <a href="https://www.instagram.com/rekmends/" class="ins-ic">
+              <i class="fab fa-instagram white-text"> </i> 
+            </a>
+           
+
+          </div>
+          <!--Grid row-->
+          </form>
+
+        </div>
+        <!-- Grid row-->
+
+      </div>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5">
+
+      <form method="POST">
+        {% csrf_token %}
+        {% if error%}
+        <div class="alert alert-danger" role="alert">
+          {{error}}
+        </div>
+        {% endif %}
+
+        <div class="input-group">
+          <input type="email" name="Email" class="form-control" placeholder="Enter your email" required style="height: 45px;">
+          <span class="input-group-btn">
+            <button class="btn " type="submit" style="margin-top: 0px;
+                width: 139px;
+                font-size: 10px;
+                font-weight: bold;
+                height: 45px; background-color: #61c4f6; color: white;">Subscribe Now</button>
+          </span>
+        </div>
+      </form>
+      <br>
+      <br>
+      <!-- Grid row -->
+      <div class="row mt-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+          <!-- Content -->
+          <h6 class="text-uppercase font-weight-bold">REKMENDS</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>Rekmends is the website you come to when buying something and you want a hassle-free quick guide to the
+            product that would best fit your requirements.
+
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+          <!-- Links -->
+          <a href="{% url 'category' %}"><h6 class="text-uppercase font-weight-bold">Categories</h6></a>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          {% for category in catblog|slice:":3" %}
+            <p><a href="{% url 'category' %}?category={{category.name}}">{{category.name}}</a></p>
+          {% endfor %}
+          
+
+        </div>
+        <!-- Grid column -->
 
         
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold">Contact</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <a href="mailto:rekmends@gmail.com"><i class="fas fa-envelope mr-3"></i> rekmends@gmail.com </a>
+          </p>
+          <p>
+            <a href="mailto:support@rekmends.com"><i class="fas fa-envelope mr-3"></i> support@rekmends.com </a>
+          </p>
+           <!--Instagram-->
+           <p>
+            <a href="https://www.instagram.com/rekmends/"><i class="fab fa-instagram white-text"> </i> Rekmends</a>
+           </p>
+
+           <p>
+            <a href="{% url 'privacy' %}"><i class="far fa-file-alt"></i> Privacy Policies</a>
+           </p>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="{% url 'homepage' %}"> Rekmends.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-  
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-    
-  <script>
- 
-    $('.slider').slick({
-         dots: true,
-         infinite: false,
-         speed: 300,
-         slidesToShow: 4,
-         slidesToScroll: 4,
-         responsive: [
-           {
-             breakpoint: 1024,
-             settings: {
-               slidesToShow: 3,
-               slidesToScroll: 3,
-               infinite: true,
-               dots: true
-             }
-           },
-           {
-             breakpoint: 600,
-             settings: {
-               slidesToShow: 2,
-               slidesToScroll: 2
-             }
-           },
-           {
-             breakpoint: 480,
-             settings: {
-               slidesToShow: 1,
-               slidesToScroll: 1
-             }
-           }
-           // You can unslick at a given breakpoint now by adding:
-           // settings: "unslick"
-           // instead of a settings object
-         ]
-       });
-       
-     </script>
+
+    <script>
+
+        $('.slider').slick({
+            dots: true,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+
+    </script>
 
 </body>
 

@@ -5,6 +5,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from .utils import unique_slug_generator
 from django.dispatch import receiver
 from django.db.models.signals import pre_save
+from django.urls import reverse
  
 # Create your models here.
 
@@ -23,7 +24,8 @@ class Post(models.Model):
         categories, null=True, on_delete=models.CASCADE)
     subcategory=models.CharField(max_length=50, default='', blank=True)
     read=models.IntegerField(default=0)
-    created_at = models.DateTimeField()
+    updated_on = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
     @staticmethod
@@ -36,9 +38,11 @@ class Post(models.Model):
     def get_category_name(self):
         return self.category.name
 
+    def get_absolute_url(self):
+        return reverse('blogdesc', args=[self.id,self.slug])
+
     
-    def get_url(self):
-        return Reversible('blogdescription', args=[self.slug])
+    
   
     
 
@@ -107,3 +111,15 @@ class subscribeform(models.Model):
 
     def __str__(self):
        return self.email 
+
+
+
+class coupon(models.Model):
+    name=models.CharField(max_length=50,default='')
+    description=models.TextField()
+    code=models.CharField(max_length=50,default='')
+    link=models.URLField(max_length=500,default='')
+    created=models.DateTimeField(auto_now_add=True)
+    status=models.BooleanField(default=True)
+    def __str__(self):
+       return self.name 

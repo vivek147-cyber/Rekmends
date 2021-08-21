@@ -19,6 +19,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet" />
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   {% load static %}
 
@@ -34,28 +36,28 @@
 
     }
 
-    
-          
-.product-price {
-  font-size: 18px;
-  color: #fbb72c;
-  font-weight: 600;
-}
 
-.product-price small {
-  font-size: 80%;
-  font-weight: 400;
-  text-decoration: line-through;
-  display: inline-block;
-  margin-right: 5px;
-  margin-left:7px
-}
 
-   .card {
-     border-radius: 10px;
-    box-shadow: 0px 1px 13px 4px #d6d6d6, 20px -20px 30px #ffffff;
-    padding-left: 0px!important;
-    padding-right: 0px!important;
+    .product-price {
+      font-size: 18px;
+      color: #fbb72c;
+      font-weight: 600;
+    }
+
+    .product-price small {
+      font-size: 80%;
+      font-weight: 400;
+      text-decoration: line-through;
+      display: inline-block;
+      margin-right: 5px;
+      margin-left: 7px
+    }
+
+    .card {
+      border-radius: 10px;
+      box-shadow: 0px 1px 13px 4px #d6d6d6, 20px -20px 30px #ffffff;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
     }
 
 
@@ -76,107 +78,148 @@
 
 
 
-.blog:hover{
-     box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .blog:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
-    
 
-    @media (max-width:575px){
-   .s{
-     width: 294px!important;
-   }
+
+    @media (max-width:575px) {
+      .s {
+        width: 294px !important;
+      }
+
+      .deals {
+        width: 310px !important;
+        height: 204px !important;
+      }
     }
 
- 
-   
+    .slick-prev:before,
+    .slick-next:before {
+      font-family: 'slick';
+      font-size: 20px;
+      line-height: 1;
+      opacity: .75;
+      color: black;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
   </style>
 
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 </head>
 
 
 <body>
-{% include 'nav.html' %}
+  {% include 'nav.html' %}
 
-    
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
 
 
-<div class="container ">
-  <h2 style="font-weight: bold; ">TRENDING BLOGS</h2>
-  <hr>
-  <div class="row mx-auto slider">
-    {% for i in trendpost %}
-    <a href="{% url 'blogdesc' i.id i.slug %}">
-<div class="card" style="height: 417px; margin-left: 10px; margin-right: 10px;">
-  <img src="{{i.image.url}}" alt="{{i.title}}" style="height: 314px;" >
-  <div class="card-body">
-    <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
-        <br>
-          <p class="card-text txt" style=" margin-top: -35px; font-weight: bolder; color: #000;">
-            {{i.title}}
-          </p>
-  </div>
-</div>
-</a>
-{% endfor %}
-</div>
-</div>
-
-
-
-
-  <div class="advertisement container " style="border: 2px solid black; height: 125px;">
-
-  </div>
-
-  
   <center>
-
-<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_zzbz9na6.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+    <video class="deals" src="{% static 'dotd.mp4' %}" style="width:600px; height:340px" autoplay muted loop> </video>
   </center>
 
- <div class="container s" style="width: 649px; ">
-<form class="d-flex" method="GET" action="{% url 'search' %}">
-    <input name="q" class="form-control me-2" placeholder="Search" aria-label="Search" required  style="height: 43px;
-    margin-top: 13px;
-    box-shadow: 0px 0px 10px 0px #dbd7d7a1;
-    border-radius: 23px;
-    border: 2px solid #d9d1d1;">
-  <button style="height: 43px;
-  width: 45px;
-  margin-top: 12px;
-  font-size: 21px;
-  border-radius: 32px;
-  border: 1px solid #00d0ff;
-  margin-left: -53px;
-  background: #00d0ff;"> <i class="fa fa-search"></i></button>
 
-  </form>
-</div>
-
- <br>
-
-  <div id='products' class="col-lg-9 mx-auto">
-    <div class="row mx-auto">
+  <hr>
+  <br>
 
 
-      {% if p %}
-      {% for i in p %}
-      <div class="card blog mx-auto mb-3" id="{{i.id}}" style="width: 18rem;">
-        <img src='{{i.image.url}}' class=" mg card-img-top" alt="...">
+  <div class="container s ">
+    <center>
+    <h2 style="font-weight: bold;">GET FREE COUPONS</h2>
+    <hr>
+    <div class="row mx-auto slider">
+      {% for i in c %}
+      <div class="card blog" id="{{i.id}}" style="height: 293px; width: 232px; margin-left: 10px; margin-right: 10px; margin-top: 0px;
+      margin-bottom: 31px;">
         <div class="card-body">
-          <span class="product-catagory">
-            <small style="border: 2px solid grey;
+          <h3 class="card-title" style="font-weight: bold; text-transform:uppercase;">{{i.name}}</h3>
+          <hr>
+          <p class="card-text">{{i.description}}</p>
+          <input type="text" value="{{i.code}}" id="myInput" style="display: none;">
+          <button onclick="myFunction()" style="font-weight: bold;">COPY CODE</button>
+           <script>
+    function myFunction() {
+      var copyText = document.getElementById("myInput");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+      alert("Copied the text: " + copyText.value);
+    }
+  </script>
+          <br>
+          <a href="{{i.link}}" style="background-color: #61c4f6; font-weight: bold; color: white;" target="_blank"
+            class="btn">Click here</a>
+            <br>
+            {% if i.status %}
+            <td><small class="badge badge-success">Available</small></td>
+            {%else%}
+            <td><small class="badge badge-warning">Expired</small></td>
+            {% endif %}
+        </div>
+      </div>
+        {% endfor %}
+
+    </div>
+  </div>
+
+
+
+
+  </div>
+
+</center>
+
+
+
+  </div>
+
+  <br>
+  <br>
+
+
+
+  <div class="container-fluid mt-3">
+    <div class="row">
+
+
+      <!-- filter -->
+
+      <div class="col-lg-3 mx-auto table-fixed">
+        <div class="list-group">
+
+          <a href="/productrekmends/category" class="list-group-item list-group-item-action ">All Products</a>
+
+
+          {% for category in catblog %}
+          <a href="?category={{category.name}}" id="mylink"
+            class="list-group-item list-group-item-action">{{category.name}}</a>
+          {% endfor %}
+
+
+        </div>
+      </div>
+      <br>
+
+      <div id='products' class="col-lg-9 mx-auto">
+        <div class="row mx-auto">
+
+
+          {% if p %}
+          {% for i in p %}
+          <div class="card blog mx-auto mb-3" id="{{i.id}}" style="width: 18rem;">
+            <img src='{{i.image.url}}' class=" mg card-img-top" alt="...">
+            <div class="card-body">
+              <span class="product-catagory">
+                <small style="border: 2px solid grey;
             background-color: #80808061;
             color: black;
             border-radius: 11px;
@@ -184,81 +227,215 @@
             padding-right: 6px;
             padding-left: 6px;">{{i.category.name}}</small>
 
-          </span>
+              </span>
 
-         
-<h5 class="card-title">{{i.name}}</h5>
-<p class="card-text">{{i.description}}</p>
-<div class="product-price">₹{{i.newprice}}<small>₹{{i.oldprice}}</small></div>
-<a href="{{i.product_link}}" target="_blank" class="btn btn-primary">buy now</a>
-</div>
-</div>
+
+              <h5 class="card-title">{{i.name}}</h5>
+              <p class="card-text">{{i.description}}</p>
+              <div class="product-price">₹{{i.newprice}}<small>₹{{i.oldprice}}</small></div>
+              <a href="{{i.product_link}}" style="background-color: #61c4f6; font-weight: bold; color: white;"
+                target="_blank" class="btn">buy now</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% else %}
+        <img src="{% static 'na.png' %}" alt="not available">
+        {% endif %}
+
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            {% if p.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ p.previous_page_number }}">Previous</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            {% endif %}
+            {% for i in p.paginator.page_range %}
+            {% if p.number == i %}
+            <li class="page-item active" aria-current="page">
+              <span class="page-link">
+                {{ i }}
+                <span class="sr-only">(current)</span>
+              </span>
+            </li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if p.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ p.next_page_number }}">Next</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+            </li>
+            {% endif %}
+          </ul>
+        </nav>
+
+
       </div>
-      {% endfor %}
+    </div>
 
-    {% else %}
-<img src="{% static 'comingsoon.jpg' %}" alt="">
- {% endif %}
-
-
-     
+  </div>
+  </div>
 
 
 
+
+
+  <footer class="page-footer font-small unique-color-dark">
+
+    <div style="background-color: #61c4f6;">
+      <div class="container" style="padding: 12px;">
+
+        <!-- Grid row-->
+        <div class="row py-2 d-flex align-items-center">
+
+          <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+            <h6 class="mb-0">Get connected with us on social networks!</h6>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+
+
+            <!-- Google +-->
+            <a href="https://www.instagram.com/rekmends/" class="ins-ic">
+              <i class="fab fa-instagram white-text"> </i>
+            </a>
+
+
+          </div>
+          <!--Grid row-->
+          </form>
+
+        </div>
+        <!-- Grid row-->
+
+      </div>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5">
+
+      <form method="POST">
+        {% csrf_token %}
+        {% if error%}
+        <div class="alert alert-danger" role="alert">
+          {{error}}
+        </div>
+        {% endif %}
+
+        <div class="input-group">
+          <input type="email" name="Email" class="form-control" placeholder="Enter your email" required
+            style="height: 45px;">
+          <span class="input-group-btn">
+            <button class="btn " type="submit" style="margin-top: 0px;
+              width: 139px;
+              font-size: 10px;
+              font-weight: bold;
+              height: 45px; background-color: #61c4f6; color: white;">Subscribe Now</button>
+          </span>
+        </div>
+      </form>
+      <br>
+      <br>
+      <!-- Grid row -->
+      <div class="row mt-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+          <!-- Content -->
+          <h6 class="text-uppercase font-weight-bold">REKMENDS</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>Rekmends is the website you come to when buying something and you want a hassle-free quick guide to the
+            product that would best fit your requirements.
+
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+          <!-- Links -->
+          <a href="{% url 'category' %}">
+            <h6 class="text-uppercase font-weight-bold">Categories</h6>
+          </a>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          {% for category in catblog|slice:":3" %}
+          <p><a href="{% url 'category' %}?category={{category.name}}">{{category.name}}</a></p>
+          {% endfor %}
+
+
+        </div>
+        <!-- Grid column -->
+
+
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+          <!-- Links -->
+          <h6 class="text-uppercase font-weight-bold">Contact</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p>
+            <a href="mailto:rekmends@gmail.com"><i class="fas fa-envelope mr-3"></i> rekmends@gmail.com </a>
+          </p>
+          <p>
+            <a href="mailto:support@rekmends.com"><i class="fas fa-envelope mr-3"></i> support@rekmends.com </a>
+          </p>
+          <!--Instagram-->
+          <p>
+            <a href="https://www.instagram.com/rekmends/"><i class="fab fa-instagram white-text"> </i> Rekmends</a>
+          </p>
+
+          <p>
+            <a href="{% url 'privacy' %}"><i class="far fa-file-alt"></i> Privacy Policies</a>
+          </p>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
 
     </div>
-  </div>
-      
-     
+    <!-- Footer Links -->
 
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="{% url 'homepage' %}"> Rekmends.com</a>
+    </div>
+    <!-- Copyright -->
 
-
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      {% if p.has_previous %}
-        <li class="page-item">
-          <a class="page-link" href="?page={{ p.previous_page_number }}">Previous</a>
-        </li>
-      {% else %}
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-        </li>
-      {% endif %}
-      {% for i in p.paginator.page_range %}
-        {% if p.number == i %}
-          <li class="page-item active" aria-current="page">
-            <span class="page-link">
-              {{ i }}
-              <span class="sr-only">(current)</span>
-            </span>
-          </li>
-        {% else %}
-          <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-        {% endif %}
-      {% endfor %}
-      {% if p.has_next %}
-        <li class="page-item">
-          <a class="page-link" href="?page={{ p.next_page_number }}">Next</a>
-        </li>
-      {% else %}
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
-        </li>
-      {% endif %}
-    </ul>
-  </nav>
-
-
-  {% include 'footer.html' %}
+  </footer>
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
-  
+
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-  
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
     integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
@@ -266,6 +443,47 @@
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+ 
+
+  <script>
+
+    $('.slider').slick({
+      dots: true,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+
+  </script>
 </body>
 
 </html>

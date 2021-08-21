@@ -31,14 +31,10 @@
 
 
             <!-- Google +-->
-            <a class="gplus-ic">
-              <i class="fab fa-google-plus-g white-text mr-4"> </i>
+            <a href="https://www.instagram.com/rekmends/" class="ins-ic">
+              <i class="fab fa-instagram white-text"> </i> 
             </a>
-
-            <!--Instagram-->
-            <a class="ins-ic">
-              <i class="fab fa-instagram white-text"> </i>
-            </a>
+           
 
           </div>
           <!--Grid row-->
@@ -95,44 +91,17 @@
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
           <!-- Links -->
-          <h6 class="text-uppercase font-weight-bold">Products</h6>
+          <a href="{% url 'category' %}"><h6 class="text-uppercase font-weight-bold">Categories</h6></a>
           <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-          <p>
-            <a href="#!">MDBootstrap</a>
-          </p>
-          <p>
-            <a href="#!">MDWordPress</a>
-          </p>
-          <p>
-            <a href="#!">BrandFlow</a>
-          </p>
-          <p>
-            <a href="#!">Bootstrap Angular</a>
-          </p>
+          {% for category in catblog|slice:":3" %}
+            <p><a href="{% url 'category' %}?category={{category.name}}">{{category.name}}</a></p>
+          {% endfor %}
+          
 
         </div>
         <!-- Grid column -->
 
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-          <!-- Links -->
-          <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-          <p>
-            <a href="#!">Your Account</a>
-          </p>
-          <p>
-            <a href="#!">Become an Affiliate</a>
-          </p>
-          <p>
-            <a href="#!">Shipping Rates</a>
-          </p>
-          <p>
-            <a href="#!">Help</a>
-          </p>
-
-        </div>
+        
         <!-- Grid column -->
 
         <!-- Grid column -->
@@ -142,17 +111,19 @@
           <h6 class="text-uppercase font-weight-bold">Contact</h6>
           <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
           <p>
-            <i class="fas fa-home mr-3"></i> Lucknow(UP), INDIA
+            <a href="mailto:rekmends@gmail.com"><i class="fas fa-envelope mr-3"></i> rekmends@gmail.com </a>
           </p>
           <p>
-            <i class="fas fa-envelope mr-3"></i> rekmends@gamil.com
+            <a href="mailto:support@rekmends.com"><i class="fas fa-envelope mr-3"></i> support@rekmends.com </a>
           </p>
-          <p>
-            <i class="fas fa-phone mr-3"></i> +91 6387218122
-          </p>
-          <p>
-            <i class="fas fa-print mr-3"></i> + 01 234 567 89
-          </p>
+           <!--Instagram-->
+           <p>
+            <a href="https://www.instagram.com/rekmends/"><i class="fab fa-instagram white-text"> </i> Rekmends</a>
+           </p>
+
+           <p>
+            <a href="{% url 'privacy' %}"><i class="far fa-file-alt"></i> Privacy Policies</a>
+           </p>
 
         </div>
         <!-- Grid column -->

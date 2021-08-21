@@ -173,7 +173,8 @@
     <div class="row mx-auto slider">
       {% for i in trendpost %}
       <a href="{% url 'blogdesc' i.id i.slug %}">
-  <div class="card" style="height: 417px; margin-left: 10px; margin-right: 10px;">
+  <div class="card" style="height: 413px; margin-left: 10px; margin-right: 10px; margin-top: 0px;
+  margin-bottom: 31px;">
     <img src="{{i.image.url}}" alt="{{i.title}}" style="height: 314px;" >
     <div class="card-body">
       <p class="card-text txt" style=" margin-top: -8px;">{{i.category.name}}</p>
@@ -283,7 +284,136 @@
   </nav>
 
 
-  {% include 'footer.html' %}
+ 
+<footer class="page-footer font-small unique-color-dark">
+
+  <div style="background-color: #61c4f6;">
+    <div class="container" style="padding: 12px;">
+
+      <!-- Grid row-->
+      <div class="row py-2 d-flex align-items-center">
+
+        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+          <h6 class="mb-0">Get connected with us on social networks!</h6>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+
+
+          <!-- Google +-->
+          <a href="https://www.instagram.com/rekmends/" class="ins-ic">
+            <i class="fab fa-instagram white-text"> </i> 
+          </a>
+         
+
+        </div>
+        <!--Grid row-->
+        </form>
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+  </div>
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5">
+
+    <form method="POST">
+      {% csrf_token %}
+      {% if error%}
+      <div class="alert alert-danger" role="alert">
+        {{error}}
+      </div>
+      {% endif %}
+
+      <div class="input-group">
+        <input type="email" name="Email" class="form-control" placeholder="Enter your email" required style="height: 45px;">
+        <span class="input-group-btn">
+          <button class="btn " type="submit" style="margin-top: 0px;
+              width: 139px;
+              font-size: 10px;
+              font-weight: bold;
+              height: 45px; background-color: #61c4f6; color: white;">Subscribe Now</button>
+        </span>
+      </div>
+    </form>
+    <br>
+    <br>
+    <!-- Grid row -->
+    <div class="row mt-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold">REKMENDS</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>Rekmends is the website you come to when buying something and you want a hassle-free quick guide to the
+          product that would best fit your requirements.
+
+        </p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <a href="{% url 'category' %}"><h6 class="text-uppercase font-weight-bold">Categories</h6></a>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        {% for category in catblog|slice:":3" %}
+          <p><a href="{% url 'category' %}?category={{category.name}}">{{category.name}}</a></p>
+        {% endfor %}
+        
+
+      </div>
+      <!-- Grid column -->
+
+      
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="mailto:rekmends@gmail.com"><i class="fas fa-envelope mr-3"></i> rekmends@gmail.com </a>
+        </p>
+        <p>
+          <a href="mailto:support@rekmends.com"><i class="fas fa-envelope mr-3"></i> support@rekmends.com </a>
+        </p>
+         <!--Instagram-->
+         <p>
+          <a href="https://www.instagram.com/rekmends/"><i class="fab fa-instagram white-text"> </i> Rekmends</a>
+         </p>
+
+         <p>
+          <a href="{% url 'privacy' %}"><i class="far fa-file-alt"></i> Privacy Policies</a>
+         </p>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="{% url 'homepage' %}"> Rekmends.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
