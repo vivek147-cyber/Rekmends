@@ -5,6 +5,13 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="Rekmends|ShopNow>
+  <meta name="description"
+    content="Rekmends gives you the platform to have the freedom of filtering the best product by providing the valuable products of most popular Ecommerce websites.">
+  <meta name="keywords" content="recommended products, shop online, free coupons available, Ecommerce , utilities">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,10 +25,15 @@
   <!-- MDB -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet" />
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-
+  
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+ 
+  
+  
   {% load static %}
 
   <title>Products</title>
@@ -36,28 +48,28 @@
 
     }
 
+    
+          
+.product-price {
+  font-size: 18px;
+  color: #fbb72c;
+  font-weight: 600;
+}
 
+.product-price small {
+  font-size: 80%;
+  font-weight: 400;
+  text-decoration: line-through;
+  display: inline-block;
+  margin-right: 5px;
+  margin-left:7px
+}
 
-    .product-price {
-      font-size: 18px;
-      color: #fbb72c;
-      font-weight: 600;
-    }
-
-    .product-price small {
-      font-size: 80%;
-      font-weight: 400;
-      text-decoration: line-through;
-      display: inline-block;
-      margin-right: 5px;
-      margin-left: 7px
-    }
-
-    .card {
-      border-radius: 10px;
-      box-shadow: 0px 1px 13px 4px #d6d6d6, 20px -20px 30px #ffffff;
-      padding-left: 0px !important;
-      padding-right: 0px !important;
+   .card {
+     border-radius: 10px;
+    box-shadow: 0px 1px 13px 4px #d6d6d6, 20px -20px 30px #ffffff;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
     }
 
 
@@ -72,29 +84,24 @@
       height: 242px;
     }
 
-
-
-
-
-
-
-    .blog:hover {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.blog:hover{
+     box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
+    
 
+    @media (max-width:575px){
+   .s{
+     width: 294px!important;
+   }
 
-    @media (max-width:575px) {
-      .s {
-        width: 294px !important;
-      }
-
-      .deals {
-        width: 310px !important;
-        height: 204px !important;
-      }
+   .deals{
+     width: 310px!important;
+     height: 204px!important;
+   }
     }
-
+    
+    
     .slick-prev:before,
     .slick-next:before {
       font-family: 'slick';
@@ -105,57 +112,110 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+
+
+    @media only screen and (max-width: 991px) {
+        .c{
+            height:430px!important;
+        }
+    }
+    
+    
+    @media only screen and (max-width: 474px) {
+        .c{
+            height:330px!important;
+        }
+    }
+    
+    .slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '•';
+     color: white;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before {
+  
+    color: white;
+}
+
+.card-img, .card-img-top {
+    border-top-left-radius: calc(-0.75rem - 1px);
+    border-top-right-radius: calc(-0.75rem - 1px);
+}
+   
+  
   </style>
 
+ 
 
 </head>
 
 
 <body>
-  {% include 'nav.html' %}
+{% include 'nav.html' %}
 
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
-
-
-  <center>
-    <video class="deals" src="{% static 'dotd.mp4' %}" style="width:600px; height:340px" autoplay muted loop> </video>
-  </center>
-
-
-  <hr>
-  <br>
+    
+<br>
+<br>
+<br>
+<br>
+<br>
+  
 
 
   <div class="container s ">
     <center>
-    <h2 style="font-weight: bold;">GET FREE COUPONS</h2>
+    <h2 style="font-weight: bold;">DEALS OF THE DAY</h2>
     <hr>
+    <br>
+    <div class="row mx-auto slider">
+       {% for i in deal %}
+<div class="card blog c " id="{{i.id}}" style="width: 232px; margin-left: 10px; margin-right: 10px; margin-top: 8px;
+      margin-bottom: 31px;">
+      <div style="background-color: #61c4f6;
+    color: white; font-size: 11px">
+      <span >{{i.discount}}</span>
+
+  <img class="card-img-top" src='{{i.image.url}}' alt="Card image cap">
+      </div>
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <div class="product-price">Starting from: ₹{{i.price}}</div>
+    <a href="{{i.link}}" class="btn" style="background-color: #61c4f6; font-weight: bold; color: white;" target="_blank">Shop Now</a>
+  </div>
+</div>
+{% endfor %}
+    </div>
+  </div>
+
+
+ <hr>
+ 
+
+  <div class="container s ">
+    <center>
+    <h2 style="font-weight: bold;">GET FREE COUPONS</h2>
+    <br>
     <div class="row mx-auto slider">
       {% for i in c %}
-      <div class="card blog" id="{{i.id}}" style="height: 293px; width: 232px; margin-left: 10px; margin-right: 10px; margin-top: 0px;
+      <div class="card blog c" id="{{i.id}}" style="height: 293px; width: 232px; margin-left: 10px; margin-right: 10px; margin-top: 8px;
       margin-bottom: 31px;">
         <div class="card-body">
           <h3 class="card-title" style="font-weight: bold; text-transform:uppercase;">{{i.name}}</h3>
           <hr>
           <p class="card-text">{{i.description}}</p>
-          <input type="text" value="{{i.code}}" id="myInput" style="display: none;">
-          <button onclick="myFunction()" style="font-weight: bold;">COPY CODE</button>
-           <script>
-    function myFunction() {
-      var copyText = document.getElementById("myInput");
-      copyText.select();
-      copyText.setSelectionRange(0, 99999)
-      document.execCommand("copy");
-      alert("Copied the text: " + copyText.value);
-    }
-  </script>
-          <br>
+           <p style="margin-bottom: 3px;">CODE: {{i.code}}</p>
+         
           <a href="{{i.link}}" style="background-color: #61c4f6; font-weight: bold; color: white;" target="_blank"
             class="btn">Click here</a>
             <br>
@@ -184,42 +244,23 @@
 
   <br>
   <br>
+  <br>
+  
 
 
+ <br>
 
-  <div class="container-fluid mt-3">
-    <div class="row">
-
-
-      <!-- filter -->
-
-      <div class="col-lg-3 mx-auto table-fixed">
-        <div class="list-group">
-
-          <a href="/productrekmends/category" class="list-group-item list-group-item-action ">All Products</a>
+  <div id='products' class="col-lg-9 mx-auto">
+    <div class="row mx-auto">
 
 
-          {% for category in catblog %}
-          <a href="?category={{category.name}}" id="mylink"
-            class="list-group-item list-group-item-action">{{category.name}}</a>
-          {% endfor %}
-
-
-        </div>
-      </div>
-      <br>
-
-      <div id='products' class="col-lg-9 mx-auto">
-        <div class="row mx-auto">
-
-
-          {% if p %}
-          {% for i in p %}
-          <div class="card blog mx-auto mb-3" id="{{i.id}}" style="width: 18rem;">
-            <img src='{{i.image.url}}' class=" mg card-img-top" alt="...">
-            <div class="card-body">
-              <span class="product-catagory">
-                <small style="border: 2px solid grey;
+     
+      {% for i in p %}
+      <div class="card blog mx-auto mb-3" id="{{i.id}}" style="width: 18rem;">
+        <img src='{{i.image.url}}' class=" mg card-img-top" alt="...">
+        <div class="card-body">
+          <span class="product-catagory">
+            <small style="border: 2px solid grey;
             background-color: #80808061;
             color: black;
             border-radius: 11px;
@@ -227,71 +268,91 @@
             padding-right: 6px;
             padding-left: 6px;">{{i.category.name}}</small>
 
-              </span>
+          </span>
 
-
-              <h5 class="card-title">{{i.name}}</h5>
-              <p class="card-text">{{i.description}}</p>
-              <div class="product-price">₹{{i.newprice}}<small>₹{{i.oldprice}}</small></div>
-              <a href="{{i.product_link}}" style="background-color: #61c4f6; font-weight: bold; color: white;"
-                target="_blank" class="btn">buy now</a>
+         
+           <h5 class="card-title">{{i.name}}</h5>
+           <p class="card-text">{{i.description}}</p>
+           <div class="product-price">₹{{i.newprice}}<small>₹{{i.oldprice}}</small></div>
+           <center><a href="{{i.product_link}}"   style="background-color: #61c4f6; font-weight: bold; color: white;" target="_blank" class="btn">buy now</a></center>
+           </div>
             </div>
-          </div>
-        </div>
-        {% endfor %}
-
-        {% else %}
-        <img src="{% static 'na.png' %}" alt="not available">
-        {% endif %}
+      {% endfor %}
+           
+           </div>
 
 
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
-            {% if p.has_previous %}
-            <li class="page-item">
-              <a class="page-link" href="?page={{ p.previous_page_number }}">Previous</a>
-            </li>
-            {% else %}
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            {% endif %}
-            {% for i in p.paginator.page_range %}
-            {% if p.number == i %}
-            <li class="page-item active" aria-current="page">
-              <span class="page-link">
-                {{ i }}
-                <span class="sr-only">(current)</span>
-              </span>
-            </li>
-            {% else %}
-            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-            {% endif %}
-            {% endfor %}
-            {% if p.has_next %}
-            <li class="page-item">
-              <a class="page-link" href="?page={{ p.next_page_number }}">Next</a>
-            </li>
-            {% else %}
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
-            </li>
-            {% endif %}
-          </ul>
-        </nav>
+
+     
 
 
-      </div>
+
+
     </div>
-
   </div>
+      
+     
+
+
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      {% if p.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ p.previous_page_number }}">Previous</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+      {% endif %}
+      {% for i in p.paginator.page_range %}
+        {% if p.number == i %}
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">
+              {{ i }}
+              <span class="sr-only">(current)</span>
+            </span>
+          </li>
+        {% else %}
+          <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if p.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ p.next_page_number }}">Next</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+  
+  <br>
+  <br>
+ 
+  
+  
+  
+  
+  <div class="container" style="background: #d3d3d38a;">
+      
+      <center><h2>--Disclaimer--</h2></center>
+      
+      <center><h6>"Product prices and availability are accurate as of the date/time indicated and are subject to change. Any price and availability information displayed on [relevant Amazon Site(s), as applicable] at the time of purchase will apply to the purchase of this product."</h6></center>
+      
   </div>
 
 
-
-
-
-  <footer class="page-footer font-small unique-color-dark">
+  <br>
+  
+  <br>
+  
+  
+  
+<footer class="page-footer font-small unique-color-dark">
 
     <div style="background-color: #61c4f6;">
       <div class="container" style="padding: 12px;">
@@ -311,9 +372,9 @@
 
             <!-- Google +-->
             <a href="https://www.instagram.com/rekmends/" class="ins-ic">
-              <i class="fab fa-instagram white-text"> </i>
+              <i class="fab fa-instagram white-text"> </i> 
             </a>
-
+           
 
           </div>
           <!--Grid row-->
@@ -337,14 +398,13 @@
         {% endif %}
 
         <div class="input-group">
-          <input type="email" name="Email" class="form-control" placeholder="Enter your email" required
-            style="height: 45px;">
+          <input type="email" name="Email" class="form-control" placeholder="Enter your email" required style="height: 45px;">
           <span class="input-group-btn">
             <button class="btn " type="submit" style="margin-top: 0px;
-              width: 139px;
-              font-size: 10px;
-              font-weight: bold;
-              height: 45px; background-color: #61c4f6; color: white;">Subscribe Now</button>
+                width: 139px;
+                font-size: 10px;
+                font-weight: bold;
+                height: 45px; background-color: #61c4f6; color: white;">Subscribe Now</button>
           </span>
         </div>
       </form>
@@ -371,19 +431,17 @@
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
           <!-- Links -->
-          <a href="{% url 'category' %}">
-            <h6 class="text-uppercase font-weight-bold">Categories</h6>
-          </a>
+          <a href="{% url 'category' %}"><h6 class="text-uppercase font-weight-bold">Categories</h6></a>
           <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
           {% for category in catblog|slice:":3" %}
-          <p><a href="{% url 'category' %}?category={{category.name}}">{{category.name}}</a></p>
+            <p><a href="{% url 'category' %}?category={{category.name}}">{{category.name}}</a></p>
           {% endfor %}
-
+          
 
         </div>
         <!-- Grid column -->
 
-
+        
         <!-- Grid column -->
 
         <!-- Grid column -->
@@ -398,14 +456,14 @@
           <p>
             <a href="mailto:support@rekmends.com"><i class="fas fa-envelope mr-3"></i> support@rekmends.com </a>
           </p>
-          <!--Instagram-->
-          <p>
+           <!--Instagram-->
+           <p>
             <a href="https://www.instagram.com/rekmends/"><i class="fab fa-instagram white-text"> </i> Rekmends</a>
-          </p>
+           </p>
 
-          <p>
+           <p>
             <a href="{% url 'privacy' %}"><i class="far fa-file-alt"></i> Privacy Policies</a>
-          </p>
+           </p>
 
         </div>
         <!-- Grid column -->
@@ -426,7 +484,7 @@
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
-
+  
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
@@ -443,7 +501,6 @@
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
- 
 
   <script>
 
@@ -484,6 +541,7 @@
     });
 
   </script>
+
 </body>
 
 </html>

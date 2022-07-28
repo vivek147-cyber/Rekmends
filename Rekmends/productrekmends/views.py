@@ -3,7 +3,7 @@ import re
 from django import forms
 from django.db.models.fields import SlugField
 from django.shortcuts import redirect, render
-from .models import categories, Post, Review, Contact, Product, subscribeform,coupon
+from .models import categories, Post, Review, Contact, Product, deals, subscribeform,coupon
 from .forms import Reviewfrom
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Q
@@ -370,6 +370,7 @@ def submit_review(request, post_id):
 
 
 def products(request):
+    deal=deals.objects.all().order_by('-id')
     c=coupon.objects.all()
     catblog = categories.objects.all()
     categoryID = request.GET.get('category')
@@ -414,7 +415,8 @@ def products(request):
         'p': pro,
         'budget_friendly': budget_friendly,
         'catblog':catblog,
-        'c':c
+        'c':c,
+        'deal':deal
 
     }
 
